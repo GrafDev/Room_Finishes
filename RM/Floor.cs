@@ -12,7 +12,7 @@ using RM;
 
 namespace RM
 {
-    [Transaction(TransactionMode.Manual)]
+    [Transaction(TransactionMode.Manual)]    
     public class Floor : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
@@ -52,7 +52,7 @@ namespace RM
                 catch (Exception ex)
                 {
                     // unchecked exception cause command failed
-                    message = Util.LangResMan.GetString("floorFinishes_unexpectedError", Util.Cult) + ex.Message;
+                    message = Util.GetLangResources.GetString("floorFinishes_unexpectedError", Util.Cult) + ex.Message;
                     //Trace.WriteLine(ex.ToString());
                     if (tx.HasStarted())
                     {
@@ -66,31 +66,31 @@ namespace RM
         void FloorFinish(UIDocument UIDoc, Transaction tx)
         {
             Document document = UIDoc.Document;
-
+            
             FloorsFinishesSetup floorsFinishesSetup = new FloorsFinishesSetup();
-
-
             //Load the selection form
 
             FloorsFinishesControl floorsFinishesControl = new FloorsFinishesControl(UIDoc, floorsFinishesSetup);
-            floorsFinishesControl.InitializeComponent();
 
-            if (floorsFinishesControl.ShowDialog() == true)
-            {
-                CreateFloors(document, floorsFinishesSetup, tx);
-            }
-            else
-            {
-                if (tx.HasStarted())
+                floorsFinishesControl.InitializeComponent();
+
+                if (floorsFinishesControl.ShowDialog() == true)
                 {
-                    tx.RollBack();
+                    CreateFloors(document, floorsFinishesSetup, tx);
                 }
-            }
+                else
+                {
+                    if (tx.HasStarted())
+                    {
+                        tx.RollBack();
+                    }
+                }
+
         }
 
         public void CreateFloors(Document document, FloorsFinishesSetup floorsFinishesSetup, Transaction tx)
         {
-            tx.Start(Util.LangResMan.GetString("floorFinishes_transactionName", Util.Cult));
+            tx.Start(Util.GetLangResources.GetString("floorFinishes_transactionName", Util.Cult));
 
             foreach (Room room in floorsFinishesSetup.SelectedRooms)
             {

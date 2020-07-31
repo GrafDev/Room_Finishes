@@ -18,6 +18,7 @@ using Autodesk.Revit.UI.Selection;
 using Autodesk.Revit.DB.Architecture;
 using System.Globalization;
 using System.Resources;
+using System.Reflection.Emit;
 #endregion
 
 
@@ -41,15 +42,15 @@ namespace RM
             FloorsFinishesSetup = floorsFinishesSetup;
 
             //Fill out Text in form
-            this.Title = Util.LangResMan.GetString("floorFinishes_TaskDialogName", Util.Cult);
-            this.all_rooms_radio.Content = Util.LangResMan.GetString("roomFinishes_all_rooms_radio", Util.Cult);
-            this.floor_height_radio.Content = Util.LangResMan.GetString("floorFinishes_height_label", Util.Cult);
-            this.height_param_radio.Content = Util.LangResMan.GetString("floorFinishes_height_param_label", Util.Cult);
-            this.groupboxName.Header = Util.LangResMan.GetString("floorFinishes_groupboxName", Util.Cult);
-            this.select_floor_label.Content = Util.LangResMan.GetString("floorFinishes_select_floor_label", Util.Cult);
-            this.selected_rooms_radio.Content = Util.LangResMan.GetString("roomFinishes_selected_rooms_radio", Util.Cult);
-            this.Cancel_Button.Content = Util.LangResMan.GetString("roomFinishes_Cancel_Button", Util.Cult);
-            this.Ok_Button.Content = Util.LangResMan.GetString("roomFinishes_OK_Button", Util.Cult);
+            this.Title = Util.GetLangResources.GetString("floorFinishes_TaskDialogName", Util.Cult);
+            this.all_rooms_radio.Content = Util.GetLangResources.GetString("roomFinishes_all_rooms_radio", Util.Cult);
+            //this.floor_height_radio.Content = Util.LangResMan.GetString("floorFinishes_height_label", Util.Cult);
+           // this.height_param_radio.Content = Util.LangResMan.GetString("floorFinishes_height_param_label", Util.Cult);
+            this.groupboxName.Header = Util.GetLangResources.GetString("floorFinishes_groupboxName", Util.Cult);
+            this.select_floor_label.Content = Util.GetLangResources.GetString("floorFinishes_select_floor_label", Util.Cult);
+            this.selected_rooms_radio.Content = Util.GetLangResources.GetString("roomFinishes_selected_rooms_radio", Util.Cult);
+            this.Cancel_Button.Content = Util.GetLangResources.GetString("roomFinishes_Cancel_Button", Util.Cult);
+            this.Ok_Button.Content = Util.GetLangResources.GetString("roomFinishes_OK_Button", Util.Cult);
 
             //Select the floor type in the document
             IEnumerable<FloorType> floorTypes = from elem in new FilteredElementCollector(_doc).OfClass(typeof(FloorType))
@@ -64,15 +65,19 @@ namespace RM
             FloorTypeListBox.SelectedItem = FloorTypeListBox.Items[0];
 
             //Find a room
-            IList<Element> roomList = new FilteredElementCollector(_doc).OfCategory(BuiltInCategory.OST_Rooms).ToList();
+            IList<Element> roomList =   new FilteredElementCollector(_doc).OfCategory(BuiltInCategory.OST_Rooms).ToList();
+                                 
+            
+
 
             if (roomList.Count != 0)
             {
                 //Get all double parameters
                 Room room = roomList.First() as Room;
 
-                List<Parameter> doubleParam = (from Parameter p in room.Parameters 
-                                               where p.Definition.ParameterType == ParameterType.Length
+                List<Parameter> doubleParam = (from Parameter p in room.Parameters
+                                               where p
+                                               //where p.Definition.ParameterType == ParameterType.Length
                                                select p).ToList();
 
                 paramSelector.ItemsSource = doubleParam;
@@ -81,8 +86,9 @@ namespace RM
             }
             else
             {
-                paramSelector.IsEnabled = false;
-                height_param_radio.IsEnabled = false;
+
+                //paramSelector.IsEnabled = false;
+                //height_param_radio.IsEnabled = false;
             }
 
             
@@ -91,8 +97,7 @@ namespace RM
 
         private void Ok_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (floor_height_radio.IsChecked == true)
-            {
+
                 FloorsFinishesSetup.RoomParameter = null;
                 if (Util.GetValueFromString(Height_TextBox.Text, _doc.GetUnits()) != null)
                 {
@@ -100,7 +105,7 @@ namespace RM
 
                     if (FloorTypeListBox.SelectedItem != null)
                     {
-                        //Select wall type for skirting board
+                        // Выбор типа плиты
                         FloorsFinishesSetup.SelectedFloorType = FloorTypeListBox.SelectedItem as FloorType;
 
                         this.DialogResult = true;
@@ -112,28 +117,11 @@ namespace RM
                 }
                 else
                 {
-                    TaskDialog.Show(Util.LangResMan.GetString("floorFinishes_TaskDialogName", Util.Cult),
-                        Util.LangResMan.GetString("floorFinishes_heightValueError", Util.Cult), TaskDialogCommonButtons.Close, TaskDialogResult.Close);
+                    TaskDialog.Show(Util.GetLangResources.GetString("floorFinishes_TaskDialogName", Util.Cult),
+                        Util.GetLangResources.GetString("floorFinishes_heightValueError", Util.Cult), TaskDialogCommonButtons.Close, TaskDialogResult.Close);
                     this.Activate();
-                }
-            }
-            else
-            {
-                FloorsFinishesSetup.RoomParameter = paramSelector.SelectedItem as Parameter;
-
-                if (FloorTypeListBox.SelectedItem != null)
-                {
-                    //Select floor type
-                    FloorsFinishesSetup.SelectedFloorType = FloorTypeListBox.SelectedItem as FloorType;
-
-                    this.DialogResult = true;
-                    this.Close();
-
-                    //Select the rooms
-                    FloorsFinishesSetup.SelectedRooms = SelectRooms().ToList();
-                }
-            }
-        }
+            }        
+        }      
 
         private void Cancel_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -174,7 +162,7 @@ namespace RM
                     ISelectionFilter filter = new RoomSelectionFilter();
 
                     IList<Reference> rs = _UIDoc.Selection.PickObjects(ObjectType.Element, filter,
-                        Util.LangResMan.GetString("roomFinishes_SelectRooms", Util.Cult));
+                        Util.GetLangResources.GetString("roomFinishes_SelectRooms", Util.Cult));
 
                     foreach (Reference r in rs)
                     {
@@ -190,20 +178,20 @@ namespace RM
 
         private void Height_TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
+
             if (Util.GetValueFromString(Height_TextBox.Text, _doc.GetUnits()) != null)
             {
                 FloorsFinishesSetup.FloorHeight = (double)Util.GetValueFromString(Height_TextBox.Text, _doc.GetUnits());
-
                 Height_TextBox.Text = UnitFormatUtils.Format(_doc.GetUnits(), UnitType.UT_Length, FloorsFinishesSetup.FloorHeight, true, true);
             }
             else
             {
-                TaskDialog.Show(Util.LangResMan.GetString("roomFinishes_TaskDialogName", Util.Cult),
-                    Util.LangResMan.GetString("roomFinishes_heightValueError", Util.Cult), TaskDialogCommonButtons.Close, TaskDialogResult.Close);
+                TaskDialog.Show(Util.GetLangResources.GetString("roomFinishes_TaskDialogName", Util.Cult),
+                    Util.GetLangResources.GetString("roomFinishes_heightValueError", Util.Cult), TaskDialogCommonButtons.Close, TaskDialogResult.Close);
                 this.Activate();
             }
         }
-        public class RoomSelectionFilter : ISelectionFilter//TODOЖнеобходимо потом удалить после появления пола
+        public class RoomSelectionFilter : ISelectionFilter // HACK: Необходимо потом удалить после появления пола
         {
             public bool AllowElement(Element element)
             {

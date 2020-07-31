@@ -12,7 +12,7 @@ namespace RM
     class Util
     {
         //Define cultureInfo
-        public static ResourceManager LangResMan = new System.Resources.ResourceManager("RM.Resources.rus", System.Reflection.Assembly.GetExecutingAssembly());   // declare Resource manager to access to specific cultureinfo
+        public static ResourceManager GetLangResources = new System.Resources.ResourceManager("RM.Resources.rus", System.Reflection.Assembly.GetExecutingAssembly());   // declare Resource manager to access to specific cultureinfo
         public static CultureInfo Cult = CultureInfo.CreateSpecificCulture("ru");         // declare culture info
 
         public static void GetLocalisationValues()
@@ -20,7 +20,7 @@ namespace RM
 
             //Create the culture for russian
             Util.Cult = CultureInfo.CreateSpecificCulture("ru");
-            Util.LangResMan = new System.Resources.ResourceManager("RM.Resources.rus", System.Reflection.Assembly.GetExecutingAssembly());
+            Util.GetLangResources = new System.Resources.ResourceManager("RM.Resources.rus", System.Reflection.Assembly.GetExecutingAssembly());
             //Create the culture for english
             //Util.Cult = CultureInfo.CreateSpecificCulture("en");
             //Util.LangResMan = new System.Resources.ResourceManager("RM.Resources.eng", System.Reflection.Assembly.GetExecutingAssembly());

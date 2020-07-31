@@ -14,6 +14,7 @@ namespace RM
         public double BoardHeight { get; set; }
         public bool JoinWall { get; set; }
         public List<Room> SelectedRooms { get; set; }
+
     }
 
     public class FloorsFinishesSetup
@@ -22,5 +23,6 @@ namespace RM
         public double FloorHeight { get; set; }
         public Parameter RoomParameter { get; set; }
         public List<Room> SelectedRooms { get; set; }
+
     }
 }
