@@ -19,7 +19,7 @@ namespace RM.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Util.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -63,9 +63,9 @@ namespace RM.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Floor height.
         /// </summary>
-        internal static string floorFinishes_groupboxName {
+        internal static string floor_groupboxName {
             get {
-                return ResourceManager.GetString("floorFinishes_groupboxName", resourceCulture);
+                return ResourceManager.GetString("floor_groupboxName", resourceCulture);
             }
         }
     }

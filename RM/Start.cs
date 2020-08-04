@@ -18,7 +18,7 @@ namespace RM
 {
     public class Start:IExternalApplication
     {
-
+        //Создание панели и основных кнопок управления
         public Result OnStartup(UIControlledApplication application)
         {
             UIControlledApplication app = application;
@@ -34,7 +34,7 @@ namespace RM
             string imageParSmall = "RM.iconParametersSmall.png";
             string imageParLarge = "RM.iconParametersLarge.png";///
 
-            string classWallName = "RM.Wall";// Имя Класса для маркировки
+            string classWallName = "RM.WallFinish";// Имя Класса для маркировки
             string classFroolName = "RM.Floor";//Имя класса для очистки
             string classParName = "RM.Parameters";// Имя класса для параметров
 

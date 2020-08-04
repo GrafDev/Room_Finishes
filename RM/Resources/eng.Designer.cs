@@ -19,7 +19,7 @@ namespace RM.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Util.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class eng {
@@ -63,99 +63,99 @@ namespace RM.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Floor height.
         /// </summary>
-        internal static string floorFinishes_groupboxName {
+        internal static string floor_groupboxName {
             get {
-                return ResourceManager.GetString("floorFinishes_groupboxName", resourceCulture);
+                return ResourceManager.GetString("floor_groupboxName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to From value.
         /// </summary>
-        internal static string floorFinishes_height_label {
+        internal static string floor_height_label {
             get {
-                return ResourceManager.GetString("floorFinishes_height_label", resourceCulture);
+                return ResourceManager.GetString("floor_height_label", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to From parameter.
         /// </summary>
-        internal static string floorFinishes_height_param_label {
+        internal static string floor_height_param_label {
             get {
-                return ResourceManager.GetString("floorFinishes_height_param_label", resourceCulture);
+                return ResourceManager.GetString("floor_height_param_label", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Please enter an elevation value for the floor :.
         /// </summary>
-        internal static string floorFinishes_heightValueError {
+        internal static string floor_heightValueError {
             get {
-                return ResourceManager.GetString("floorFinishes_heightValueError", resourceCulture);
+                return ResourceManager.GetString("floor_heightValueError", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to There is no room in the current model.
         /// </summary>
-        internal static string floorFinishes_noRoomError {
+        internal static string floor_noRoomError {
             get {
-                return ResourceManager.GetString("floorFinishes_noRoomError", resourceCulture);
+                return ResourceManager.GetString("floor_noRoomError", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Floor Finishes.
         /// </summary>
-        internal static string floorFinishes_ribbon_panel_name {
+        internal static string floor_ribbon_panel_name {
             get {
-                return ResourceManager.GetString("floorFinishes_ribbon_panel_name", resourceCulture);
+                return ResourceManager.GetString("floor_ribbon_panel_name", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Select a floor type :.
         /// </summary>
-        internal static string floorFinishes_select_floor_label {
+        internal static string floor_select_floor_label {
             get {
-                return ResourceManager.GetString("floorFinishes_select_floor_label", resourceCulture);
+                return ResourceManager.GetString("floor_select_floor_label", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Create floor finishes.
         /// </summary>
-        internal static string floorFinishes_TaskDialogName {
+        internal static string floor_TaskDialogName {
             get {
-                return ResourceManager.GetString("floorFinishes_TaskDialogName", resourceCulture);
+                return ResourceManager.GetString("floor_TaskDialogName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Create finishing floor.
         /// </summary>
-        internal static string floorFinishes_toolTip {
+        internal static string floor_toolTip {
             get {
-                return ResourceManager.GetString("floorFinishes_toolTip", resourceCulture);
+                return ResourceManager.GetString("floor_toolTip", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Floor finish.
         /// </summary>
-        internal static string floorFinishes_transactionName {
+        internal static string floor_transactionName {
             get {
-                return ResourceManager.GetString("floorFinishes_transactionName", resourceCulture);
+                return ResourceManager.GetString("floor_transactionName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Command is failed for unexpected reason..
         /// </summary>
-        internal static string floorFinishes_unexpectedError {
+        internal static string floor_unexpectedError {
             get {
-                return ResourceManager.GetString("floorFinishes_unexpectedError", resourceCulture);
+                return ResourceManager.GetString("floor_unexpectedError", resourceCulture);
             }
         }
         

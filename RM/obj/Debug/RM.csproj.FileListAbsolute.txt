@@ -13,3 +13,5 @@ C:\Users\jakovlevgm\source\repos\RM\RM\obj\Debug\FloorDialogBox.baml
 C:\Users\jakovlevgm\source\repos\RM\RM\obj\Debug\FloorDialogBox.g.cs
 C:\Users\jakovlevgm\source\repos\RM\RM\obj\Debug\App.baml
 C:\Users\jakovlevgm\source\repos\RM\RM\obj\Debug\RM.csprojAssemblyReference.cache
+C:\Users\jakovlevgm\source\repos\RM\RM\obj\Debug\WallDialogBox.baml
+C:\Users\jakovlevgm\source\repos\RM\RM\obj\Debug\WallDialogBox.g.cs

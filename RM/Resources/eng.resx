@@ -178,37 +178,37 @@ Board</value>
   <data name="roomFinishes_SelectRooms" xml:space="preserve">
     <value>Select Rooms</value>
   </data>
-  <data name="floorFinishes_heightValueError" xml:space="preserve">
+  <data name="floor_heightValueError" xml:space="preserve">
     <value>Please enter an elevation value for the floor :</value>
   </data>
-  <data name="floorFinishes_ribbon_panel_name" xml:space="preserve">
+  <data name="floor_ribbon_panel_name" xml:space="preserve">
     <value>Floor Finishes</value>
   </data>
-  <data name="floorFinishes_select_floor_label" xml:space="preserve">
+  <data name="floor_select_floor_label" xml:space="preserve">
     <value>Select a floor type :</value>
   </data>
-  <data name="floorFinishes_TaskDialogName" xml:space="preserve">
+  <data name="floor_TaskDialogName" xml:space="preserve">
     <value>Create floor finishes</value>
   </data>
-  <data name="floorFinishes_toolTip" xml:space="preserve">
+  <data name="floor_toolTip" xml:space="preserve">
     <value>Create finishing floor</value>
   </data>
-  <data name="floorFinishes_transactionName" xml:space="preserve">
+  <data name="floor_transactionName" xml:space="preserve">
     <value>Floor finish</value>
   </data>
-  <data name="floorFinishes_unexpectedError" xml:space="preserve">
+  <data name="floor_unexpectedError" xml:space="preserve">
     <value>Command is failed for unexpected reason.</value>
   </data>
-  <data name="floorFinishes_height_label" xml:space="preserve">
+  <data name="floor_height_label" xml:space="preserve">
     <value>From value</value>
   </data>
-  <data name="floorFinishes_groupboxName" xml:space="preserve">
+  <data name="floor_groupboxName" xml:space="preserve">
     <value>Floor height</value>
   </data>
-  <data name="floorFinishes_height_param_label" xml:space="preserve">
+  <data name="floor_height_param_label" xml:space="preserve">
     <value>From parameter</value>
   </data>
-  <data name="floorFinishes_noRoomError" xml:space="preserve">
+  <data name="floor_noRoomError" xml:space="preserve">
     <value>There is no room in the current model</value>
   </data>
   <data name="roomFinishes_joinWalls" xml:space="preserve">

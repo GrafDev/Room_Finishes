@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RM
 {
-    public class SkirtingBoardSetup
+    public class WallSetup
     {
         public WallType SelectedWallType { get; set; }
         public double BoardHeight { get; set; }
@@ -17,10 +17,10 @@ namespace RM
 
     }
 
-    public class FloorsFinishesSetup
+    public class FloorsSetup
     {
         public FloorType SelectedFloorType { get; set; }
-        public double FloorHeight { get; set; }
+        public double OffsetHeight { get; set; }
         public Parameter RoomParameter { get; set; }
         public List<Room> SelectedRooms { get; set; }
 

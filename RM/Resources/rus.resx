@@ -121,16 +121,16 @@
     <value>Все помещения на текущем виде</value>
   </data>
   <data name="roomFinishes_board_height_label" xml:space="preserve">
-    <value>Высота плинтуса:</value>
+    <value>Смещение</value>
   </data>
   <data name="roomFinishes_button_name" xml:space="preserve">
-    <value>Плинтус</value>
+    <value>Стена</value>
   </data>
   <data name="roomFinishes_Cancel_Button" xml:space="preserve">
     <value>Отменить</value>
   </data>
   <data name="roomFinishes_heightValueError" xml:space="preserve">
-    <value>Пожалуйста, введите значение высоты плинтуса:</value>
+    <value>Пожалуйста, введите значение высоты отделки стен</value>
   </data>
   <data name="roomFinishes_OK_Button" xml:space="preserve">
     <value>OK</value>
@@ -139,22 +139,22 @@
     <value>Отделка помещений</value>
   </data>
   <data name="roomFinishes_selected_rooms_radio" xml:space="preserve">
-    <value>Только выбранные номера помещений</value>
+    <value>Только выбранные помещения</value>
   </data>
   <data name="roomFinishes_select_wall_label" xml:space="preserve">
-    <value>Выберите тип стены для плинтуса:</value>
+    <value>Выберите тип стены для отделки:</value>
   </data>
   <data name="roomFinishes_TaskDialogName" xml:space="preserve">
-    <value>Создать плинтус</value>
+    <value>Создать стены отделки помещений</value>
   </data>
   <data name="roomFinishes_toolTip" xml:space="preserve">
-    <value>Создать плинтусы</value>
+    <value>Создать стены отделки помещений</value>
   </data>
   <data name="roomFinishes_transactionName" xml:space="preserve">
-    <value>Создать плинтус</value>
+    <value>Создать стены отделки помещений</value>
   </data>
   <data name="roomFinishes_unexpectedError" xml:space="preserve">
-    <value>Команда не выполнена по непредвиденной причине.</value>
+    <value>Команда не выполнена по непредвиденной причине</value>
   </data>
   <data name="roomFinishes_verticallyCompoundError" xml:space="preserve">
     <value>Эта функция не будет работать с составной стеной</value>
@@ -177,40 +177,40 @@
   <data name="roomFinishes_SelectRooms" xml:space="preserve">
     <value>Выберите помещения</value>
   </data>
-  <data name="floorFinishes_heightValueError" xml:space="preserve">
+  <data name="floor_heightValueError" xml:space="preserve">
     <value>Пожалуйста, введите значение высоты пола:</value>
   </data>
-  <data name="floorFinishes_ribbon_panel_name" xml:space="preserve">
+  <data name="floor_ribbon_panel_name" xml:space="preserve">
     <value>Напольные покрытия</value>
   </data>
-  <data name="floorFinishes_select_floor_label" xml:space="preserve">
+  <data name="floor_select_floor_label" xml:space="preserve">
     <value>Выберите тип пола:</value>
   </data>
-  <data name="floorFinishes_TaskDialogName" xml:space="preserve">
+  <data name="floor_TaskDialogName" xml:space="preserve">
     <value>Создать отделку пола</value>
   </data>
-  <data name="floorFinishes_toolTip" xml:space="preserve">
+  <data name="floor_toolTip" xml:space="preserve">
     <value>Создать тип отделки ????</value>
   </data>
-  <data name="floorFinishes_transactionName" xml:space="preserve">
+  <data name="floor_transactionName" xml:space="preserve">
     <value>Отделка пола</value>
   </data>
-  <data name="floorFinishes_unexpectedError" xml:space="preserve">
+  <data name="floor_unexpectedError" xml:space="preserve">
     <value>Команда не выполнена по непредвиденной причине.</value>
   </data>
-  <data name="floorFinishes_height_label" xml:space="preserve">
+  <data name="floor_height_label" xml:space="preserve">
     <value>От уровня</value>
   </data>
-  <data name="floorFinishes_groupboxName" xml:space="preserve">
+  <data name="floor_groupboxName" xml:space="preserve">
     <value>Отметка верха пола</value>
   </data>
-  <data name="floorFinishes_height_param_label" xml:space="preserve">
+  <data name="floor_height_param_label" xml:space="preserve">
     <value>Значение из параметра</value>
   </data>
-  <data name="floorFinishes_noRoomError" xml:space="preserve">
+  <data name="floor_noRoomError" xml:space="preserve">
     <value>В данной модели нет места</value>
   </data>
-  <data name="roomFinishes_joinWalls" xml:space="preserve">
-    <value>Соединить геометрию</value>
+  <data name="roomFinishes_groupboxName" xml:space="preserve">
+    <value>Верхний предел стен отделки помещений</value>
   </data>
 </root>

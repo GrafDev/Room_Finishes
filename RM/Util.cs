@@ -11,24 +11,24 @@ namespace RM
 {
     class Util
     {
-        //Define cultureInfo
-        public static ResourceManager GetLangResources = new System.Resources.ResourceManager("RM.Resources.rus", System.Reflection.Assembly.GetExecutingAssembly());   // declare Resource manager to access to specific cultureinfo
+        // Define cultureInfo
+        public static ResourceManager GetLanguageResources = new System.Resources.ResourceManager("RM.Resources.rus", System.Reflection.Assembly.GetExecutingAssembly());   // declare Resource manager to access to specific cultureinfo
         public static CultureInfo Cult = CultureInfo.CreateSpecificCulture("ru");         // declare culture info
 
         public static void GetLocalisationValues()
         {
 
-            //Create the culture for russian
+            // Create the culture for russian
             Util.Cult = CultureInfo.CreateSpecificCulture("ru");
-            Util.GetLangResources = new System.Resources.ResourceManager("RM.Resources.rus", System.Reflection.Assembly.GetExecutingAssembly());
-            //Create the culture for english
-            //Util.Cult = CultureInfo.CreateSpecificCulture("en");
-            //Util.LangResMan = new System.Resources.ResourceManager("RM.Resources.eng", System.Reflection.Assembly.GetExecutingAssembly());
+            Util.GetLanguageResources = new System.Resources.ResourceManager("RM.Resources.rus", System.Reflection.Assembly.GetExecutingAssembly());
+            // Create the culture for english
+            // Util.Cult = CultureInfo.CreateSpecificCulture("en");
+            // Util.GetLanguageResources = new System.Resources.ResourceManager("RM.Resources.eng", System.Reflection.Assembly.GetExecutingAssembly());
         }
 
-        public static double? GetValueFromString(string text, Units units)
+        public static double? GetFromString(string text, Units units)
         {
-            //Check the string value
+            // Check the string value
             string heightValueString = text;
             double lenght;
 

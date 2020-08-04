@@ -52,7 +52,7 @@ namespace RM
                 catch (Exception ex)
                 {
                     // unchecked exception cause command failed
-                    message = Util.GetLangResources.GetString("floorFinishes_unexpectedError", Util.Cult) + ex.Message;
+                    message = Util.GetLanguageResources.GetString("floor_unexpectedError", Util.Cult) + ex.Message;
                     //Trace.WriteLine(ex.ToString());
                     if (tx.HasStarted())
                     {
@@ -67,10 +67,10 @@ namespace RM
         {
             Document document = UIDoc.Document;
             
-            FloorsFinishesSetup floorsFinishesSetup = new FloorsFinishesSetup();
+            FloorsSetup floorsFinishesSetup = new FloorsSetup();
             //Load the selection form
 
-            FloorsFinishesControl floorsFinishesControl = new FloorsFinishesControl(UIDoc, floorsFinishesSetup);
+            FloorsControls floorsFinishesControl = new FloorsControls(UIDoc, floorsFinishesSetup);
 
                 floorsFinishesControl.InitializeComponent();
 
@@ -88,9 +88,9 @@ namespace RM
 
         }
 
-        public void CreateFloors(Document document, FloorsFinishesSetup floorsFinishesSetup, Transaction tx)
+        public void CreateFloors(Document document, FloorsSetup floorsFinishesSetup, Transaction tx)
         {
-            tx.Start(Util.GetLangResources.GetString("floorFinishes_transactionName", Util.Cult));
+            tx.Start(Util.GetLanguageResources.GetString("floor_transactionName", Util.Cult));
 
             foreach (Room room in floorsFinishesSetup.SelectedRooms)
             {
@@ -100,15 +100,10 @@ namespace RM
                     {
                         //Get all finish properties
                         double height;
-                        if (floorsFinishesSetup.RoomParameter == null)
-                        {
-                            height = floorsFinishesSetup.FloorHeight;
-                        }
-                        else
-                        {
-                            Parameter roomParameter = room.get_Parameter(floorsFinishesSetup.RoomParameter.Definition);
-                            height = roomParameter.AsDouble();
-                        }
+ 
+                        Parameter roomParameter = room.get_Parameter(floorsFinishesSetup.RoomParameter.Definition);
+                        height = roomParameter.AsDouble()+ floorsFinishesSetup.OffsetHeight;
+
 
                         SpatialElementBoundaryOptions opt = new SpatialElementBoundaryOptions();
 

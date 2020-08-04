@@ -2,11 +2,11 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:PropertyGrid="clr-namespace:UIFramework.PropertyGrid;assembly=UIFramework" x:Class="RM.FloorsFinishesControl"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"             
+             xmlns:PropertyGrid="clr-namespace:UIFramework.PropertyGrid;assembly=UIFramework" x:Class="RM.FloorsControls"
              mc:Ignorable="d"
         IsEnabled="True" Title="Create rooms finishes" DataContext="{Binding}" ShowInTaskbar="False" 
-        WindowStartupLocation="Manual" Background="Gainsboro" BorderBrush="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" Width="600" Height="478" MinWidth="600" MinHeight="500" WindowStyle="ToolWindow">
+        WindowStartupLocation="CenterScreen" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Width="500" Height="550" MinWidth="550" MinHeight="500" WindowStyle="ToolWindow">
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Width" Value="88" />
@@ -20,20 +20,15 @@
     <Window.Effect>
         <DropShadowEffect/>
     </Window.Effect>
-    <Grid Margin="10,10,10,10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition />
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="44"/>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            <RadioButton Content="all_rooms_radio" x:Name="all_rooms_radio" IsChecked="True"/>
-            <RadioButton Content="selected_rooms_radio" x:Name="selected_rooms_radio"/>
+    <Grid Margin="10,10,10,162">
+
+        <StackPanel Margin="0,0,0,-52" MinHeight="60" VerticalAlignment="Bottom" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" Height="62">
+            <RadioButton Content="all_rooms_radio" x:Name="allRoomsRadio" IsChecked="True" Margin="10,5,0,5"/>
+            <RadioButton Content="selected_rooms_radio" x:Name="selectRoomRadio" HorizontalAlignment="Left" Margin="10,5,0,5"/>
         </StackPanel>
-        <DockPanel Grid.Row="1" ScrollViewer.CanContentScroll="True">
-            <Label DockPanel.Dock="Top" Content="select_floor_label" x:Name="select_floor_label"/>
-            <ListBox x:Name ="FloorTypeListBox" ScrollViewer.HorizontalScrollBarVisibility="Hidden" BorderBrush="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}">
+        <DockPanel ScrollViewer.CanContentScroll="True" Margin="0,0,0,10">
+            <Label DockPanel.Dock="Top" Content="select_floor_label" x:Name="selectFoorLabel"/>
+            <ListBox x:Name ="FloorTypeListBox" ScrollViewer.HorizontalScrollBarVisibility="Hidden" BorderBrush="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" Margin="0,0,0,10" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Label Content="{Binding Name}" />
@@ -41,27 +36,30 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </DockPanel>
-        <GroupBox x:Name="groupboxName" Header="groupboxName" Foreground="Black" BorderThickness="0" Grid.IsSharedSizeScope="True" Grid.Row="2" MinHeight="60" Margin="0,0,0,1">
-            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,8,-2,-4" VerticalAlignment="Top" Height="42">
-                <DockPanel Margin="8,0,0,10" Width="358" HorizontalAlignment="Left">
-                    <ComboBox x:Name="paramSelector" Margin="5,5,5,0"
-                              IsEnabled="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="283" />
+        <GroupBox x:Name="groupboxParam" Header="groupboxParam" Foreground="Black" BorderThickness="0" Grid.IsSharedSizeScope="True" MinHeight="55" Margin="0,0,0,-117" BorderBrush="{x:Null}" VerticalAlignment="Bottom" Height="60">
+            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,-12,0" VerticalAlignment="Bottom" Height="37" HorizontalAlignment="Left" Width="522">
+
+                <DockPanel LastChildFill="False" HorizontalAlignment="Left">
+                    <ComboBox x:Name="paramSelector" Margin="5,0,5,8"
+                              IsEnabled="True" MinWidth="180" MinHeight="22" Width="229" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="20" VerticalContentAlignment="Center" />
                 </DockPanel>
-                <Label x:Name="offsetFloor" Content="Offset&#xD;&#xA;" AutomationProperties.HelpText="offset" Width="54" HorizontalAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,10" VerticalAlignment="Center" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
-                <DockPanel Margin="0,0,8,10" Width="120" HorizontalAlignment="Left">
-                    <TextBox  TextWrapping="NoWrap" Text="0" x:Name="Height_TextBox" Margin="5,0" LostFocus="Height_TextBox_LostFocus"
-                              IsEnabled="True" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="32"/>
+                <Label Content="+" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="37" VerticalContentAlignment="Center"/>
+                <DockPanel Margin="0" Width="231" Height="37" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                    <TextBox  TextWrapping="Wrap" Text="0 mm" x:Name="Height_TextBox" Margin="5,8,5,9" LostFocus="Height_TextBox_LostFocus"
+                              IsEnabled="True" HorizontalAlignment="Left" VerticalContentAlignment="Center" UndoLimit="0" VerticalAlignment="Center" MinWidth="100" Height="20" Width="100" MinHeight="20" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
                 </DockPanel>
             </StackPanel>
         </GroupBox>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" MinHeight="45" Height="45" VerticalAlignment="Bottom" Margin="0" Grid.RowSpan="2">
-            <Button Content="Ok_Button" IsDefault="True" x:Name="Ok_Button" Click="Ok_Button_Click" Height="25" Margin="10" MinHeight="25" MinWidth="88" VerticalAlignment="Center" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
+
+
+        <StackPanel Orientation="Horizontal" MinHeight="45" Margin="0,0,0,-162" Height="32" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="522">
+            <Button Content="Ok_Button" IsDefault="True" x:Name="okButton" Click="Ok_Button_Click" Height="25" Margin="10" MinHeight="25" MinWidth="88" VerticalAlignment="Center" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
                 <AutomationProperties.LabeledBy>
                     <PropertyGrid:PropertyGrid/>
                 </AutomationProperties.LabeledBy>
             </Button>
-            <Button Content="Cancel_Button" IsCancel="True" x:Name="Cancel_Button" Click="Cancel_Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10" Height="25" MinHeight="25" MinWidth="88" VerticalAlignment="Center" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
+            <Button Content="Cancel_Button" IsCancel="True" x:Name="cancelButton" Click="Cancel_Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10" Height="25" MinHeight="25" MinWidth="88" VerticalAlignment="Center" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
                 <AutomationProperties.LabeledBy>
                     <PropertyGrid:PropertyGrid/>
                 </AutomationProperties.LabeledBy>
