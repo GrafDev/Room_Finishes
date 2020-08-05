@@ -19,7 +19,7 @@ namespace RM.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Util.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class eng {
@@ -242,6 +242,15 @@ namespace RM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to roomFinishes_from_level_Radio.
+        /// </summary>
+        internal static string roomFinishes_from_level_Radio {
+            get {
+                return ResourceManager.GetString("roomFinishes_from_level_Radio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter a height value for the skirting board :.
         /// </summary>
         internal static string roomFinishes_heightValueError {
@@ -310,6 +319,15 @@ namespace RM.Resources {
         internal static string roomFinishes_TaskDialogName {
             get {
                 return ResourceManager.GetString("roomFinishes_TaskDialogName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to roomFinishes_to_height_Radio.
+        /// </summary>
+        internal static string roomFinishes_to_height_Radio {
+            get {
+                return ResourceManager.GetString("roomFinishes_to_height_Radio", resourceCulture);
             }
         }
         

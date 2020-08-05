@@ -22,7 +22,7 @@
     </Window.Effect>
     <Grid Margin="10,10,10,162">
 
-        <StackPanel Margin="0,0,0,-52" MinHeight="60" VerticalAlignment="Bottom" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" Height="62">
+        <StackPanel Margin="0,0,0,-52" MinHeight="60" VerticalAlignment="Bottom" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Height="62">
             <RadioButton Content="all_rooms_radio" x:Name="allRoomsRadio" IsChecked="True" Margin="10,5,0,5"/>
             <RadioButton Content="selected_rooms_radio" x:Name="selectRoomRadio" HorizontalAlignment="Left" Margin="10,5,0,5"/>
         </StackPanel>
@@ -39,7 +39,7 @@
         <GroupBox x:Name="groupboxParam" Header="groupboxParam" Foreground="Black" BorderThickness="0" Grid.IsSharedSizeScope="True" MinHeight="55" Margin="0,0,0,-117" BorderBrush="{x:Null}" VerticalAlignment="Bottom" Height="60">
             <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,-12,0" VerticalAlignment="Bottom" Height="37" HorizontalAlignment="Left" Width="522">
 
-                <DockPanel LastChildFill="False" HorizontalAlignment="Left">
+                <DockPanel LastChildFill="False" HorizontalAlignment="Left" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}">
                     <ComboBox x:Name="paramSelector" Margin="5,0,5,8"
                               IsEnabled="True" MinWidth="180" MinHeight="22" Width="229" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="20" VerticalContentAlignment="Center" />
                 </DockPanel>

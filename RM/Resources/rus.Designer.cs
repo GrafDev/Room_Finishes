@@ -241,6 +241,15 @@ namespace RM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Расчет от уровня помещения.
+        /// </summary>
+        internal static string roomFinishes_from_level_Radio {
+            get {
+                return ResourceManager.GetString("roomFinishes_from_level_Radio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Верхний предел стен отделки помещений.
         /// </summary>
         internal static string roomFinishes_groupboxName {
@@ -309,6 +318,15 @@ namespace RM.Resources {
         internal static string roomFinishes_TaskDialogName {
             get {
                 return ResourceManager.GetString("roomFinishes_TaskDialogName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Расчет от высоты помещения.
+        /// </summary>
+        internal static string roomFinishes_to_height_Radio {
+            get {
+                return ResourceManager.GetString("roomFinishes_to_height_Radio", resourceCulture);
             }
         }
         

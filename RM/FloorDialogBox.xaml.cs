@@ -99,7 +99,7 @@ namespace RM
             
                 if (Util.GetFromString(Height_TextBox.Text, _doc.GetUnits()) != null)
                 {
-                    FloorSetup.OffsetHeight = (double)Util.GetFromString(Height_TextBox.Text, _doc.GetUnits());
+                    FloorSetup.OffsetFloorHeight = (double)Util.GetFromString(Height_TextBox.Text, _doc.GetUnits());
 
                     if (FloorTypeListBox.SelectedItem != null)
                     {
@@ -180,8 +180,8 @@ namespace RM
 
             if (Util.GetFromString(Height_TextBox.Text, _doc.GetUnits()) != null)
             {
-                FloorSetup.OffsetHeight = (double)Util.GetFromString(Height_TextBox.Text, _doc.GetUnits());
-                Height_TextBox.Text = UnitFormatUtils.Format(_doc.GetUnits(), UnitType.UT_Length, FloorSetup.OffsetHeight, true, true);
+                FloorSetup.OffsetFloorHeight = (double)Util.GetFromString(Height_TextBox.Text, _doc.GetUnits());
+                Height_TextBox.Text = UnitFormatUtils.Format(_doc.GetUnits(), UnitType.UT_Length, FloorSetup.OffsetFloorHeight, true, true);
             }
             else
             {

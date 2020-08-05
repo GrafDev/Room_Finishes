@@ -32,7 +32,7 @@ namespace RM
             string heightValueString = text;
             double lenght;
 
-            if (Autodesk.Revit.DB.UnitFormatUtils.TryParse(units, UnitType.UT_Length, heightValueString, out lenght))
+            if (UnitFormatUtils.TryParse(units, UnitType.UT_Length, heightValueString, out lenght))
             {
                 return lenght;
             }

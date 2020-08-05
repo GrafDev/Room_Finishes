@@ -214,4 +214,10 @@ Board</value>
   <data name="roomFinishes_joinWalls" xml:space="preserve">
     <value>Join geometry</value>
   </data>
+  <data name="roomFinishes_from_level_Radio" xml:space="preserve">
+    <value>roomFinishes_from_level_Radio</value>
+  </data>
+  <data name="roomFinishes_to_height_Radio" xml:space="preserve">
+    <value>roomFinishes_to_height_Radio</value>
+  </data>
 </root>

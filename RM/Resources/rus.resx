@@ -213,4 +213,10 @@
   <data name="roomFinishes_groupboxName" xml:space="preserve">
     <value>Верхний предел стен отделки помещений</value>
   </data>
+  <data name="roomFinishes_from_level_Radio" xml:space="preserve">
+    <value>Расчет от уровня помещения</value>
+  </data>
+  <data name="roomFinishes_to_height_Radio" xml:space="preserve">
+    <value>Расчет от высоты помещения</value>
+  </data>
 </root>

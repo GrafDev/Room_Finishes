@@ -15,76 +15,68 @@ namespace RM
     [Transaction(TransactionMode.Manual)]
     class WallFinish: IExternalCommand
     {
-        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+        public Result Execute(ExternalCommandData commandData, ref string messageErr, ElementSet elements)
         {
             UIApplication uiApp = commandData.Application;
             UIDocument uiDoc = commandData.Application.ActiveUIDocument;
             Document document = uiDoc.Document;
 
-            //Subscribe to the FailuresProcessing Event
             uiApp.Application.FailuresProcessing += new EventHandler<Autodesk.Revit.DB.Events.FailuresProcessingEventArgs>(FailuresProcessing);
 
-            using (TransactionGroup txg = new TransactionGroup(document))
+            using (TransactionGroup txGroupe = new TransactionGroup(document))
             {
                 using (Transaction tx = new Transaction(document))
                 {
                     try
                     {
-                        txg.Start(Util.GetLanguageResources.GetString("roomFinishes_transactionName", Util.Cult));
+                        txGroupe.Start(Util.GetLanguageResources.GetString("roomFinishes_transactionName", Util.Cult));
 
+                        // Мы писали мы писали, наши пальчики устали
+                        // Мы немножко отдохнем и опять писать начнем
 
-
-                        // Add Your Code Here
                         RoomFinish(uiDoc, tx);
 
                         if (tx.GetStatus() == TransactionStatus.RolledBack)
                         {
-                            txg.RollBack();
+                            txGroupe.RollBack();
                         }
                         else
                         {
-                            txg.Assimilate();
+                            txGroupe.Assimilate();
                         }
 
 
-                        //Unsubscribe to the FailuresProcessing Event
                         uiApp.Application.FailuresProcessing -= FailuresProcessing;
-                        // Return Success
                         return Result.Succeeded;
                     }
                     catch (Autodesk.Revit.Exceptions.OperationCanceledException exceptionCanceled)
                     {
-                        message = exceptionCanceled.Message;
+                        messageErr = exceptionCanceled.Message;
                         if (tx.HasStarted())
                         {
                             tx.RollBack();
                         }
-                        //Unsubscribe to the FailuresProcessing Event
-                        uiApp.Application.FailuresProcessing -= FailuresProcessing;
+                                               uiApp.Application.FailuresProcessing -= FailuresProcessing;
                         return Autodesk.Revit.UI.Result.Cancelled;
                     }
                     catch (ErrorMessageException errorEx)
                     {
-                        // checked exception need to show in error messagebox
-                        message = errorEx.Message;
+                        messageErr = errorEx.Message;
                         if (tx.HasStarted())
                         {
                             tx.RollBack();
                         }
-                        //Unsubscribe to the FailuresProcessing Event
                         uiApp.Application.FailuresProcessing -= FailuresProcessing;
                         return Autodesk.Revit.UI.Result.Failed;
                     }
                     catch (Exception ex)
                     {
-                        // unchecked exception cause command failed
-                        message = Util.GetLanguageResources.GetString("roomFinishes_unexpectedError", Util.Cult) + ex.Message;
+                        messageErr = Util.GetLanguageResources.GetString("roomFinishes_unexpectedError", Util.Cult) + ex.Message;
                         //Trace.WriteLine(ex.ToString());
                         if (tx.HasStarted())
                         {
                             tx.RollBack();
                         }
-                        //Unsubscribe to the FailuresProcessing Event
                         uiApp.Application.FailuresProcessing -= FailuresProcessing;
                         return Autodesk.Revit.UI.Result.Failed;
                     }
@@ -98,7 +90,7 @@ namespace RM
             Document doc = uiDoc.Document;
             WallSetup wallFinishSetup = new WallSetup();
 
-            //Load the selection form
+            // Загрузка окна для выбора стен и параметров установки стен отделки
             WallDialogBox userControl = new WallDialogBox(uiDoc, wallFinishSetup);
             userControl.InitializeComponent();
 
@@ -115,14 +107,22 @@ namespace RM
             }
         }
 
-        public void CreateWallFinish(Document doc, Transaction tx, WallSetup skirtingBoardSetup)
+        public void CreateWallFinish(Document doc, Transaction tx, WallSetup wallBoardSetup)
         {
             tx.Start(Util.GetLanguageResources.GetString("roomFinishes_transactionName", Util.Cult));
 
-            WallType duplicatedWallType = DuplicateWallType(skirtingBoardSetup.SelectedWallType, doc);
+            WallType duplicatedWallType = DuplicateWallType(wallBoardSetup.SelectedWallType, doc);
 
-            double heightOffsetWall = skirtingBoardSetup.BoardHeight;
-            Dictionary<ElementId, ElementId> skirtingDictionary = CreateWalls(doc, skirtingBoardSetup.SelectedRooms, heightOffsetWall, duplicatedWallType);
+            // Первод единиц в Футы
+            double heightOffsetWall = UnitUtils.ConvertFromInternalUnits(wallBoardSetup.OffsetWallHeight, DisplayUnitType.DUT_MILLIMETERS);
+
+
+           // Parameter roomParameter = room.get_Parameter(floorsFinishesSetup.RoomParameter.Definition);
+          //  heightOffsetWall = roomParameter.AsDouble() + floorsFinishesSetup.OffsetHeight;
+
+            Dictionary<ElementId, ElementId> skirtingDictionary = CreateWalls(doc,
+                wallBoardSetup.SelectedRooms,
+                heightOffsetWall, duplicatedWallType,wallBoardSetup);
 
             FailureHandlingOptions options = tx.GetFailureHandlingOptions();
 
@@ -146,10 +146,10 @@ namespace RM
                     }
                 }
 
-                Element.ChangeTypeId(doc, skirtingDictionary.Keys, skirtingBoardSetup.SelectedWallType.Id);
+                Element.ChangeTypeId(doc, skirtingDictionary.Keys, wallBoardSetup.SelectedWallType.Id);
 
-                //Join both wall
-                if (skirtingBoardSetup.JoinWall)
+                // Соединение стен
+                if (wallBoardSetup.JoinWall)
                 {
                     JoinGeometry(doc, skirtingDictionary);
                 }
@@ -181,26 +181,44 @@ namespace RM
             }
         }
 
-        private Dictionary<ElementId, ElementId> CreateWalls(Document doc, IEnumerable<Room> modelRooms, double height, WallType newWallType)
+        private Dictionary<ElementId, ElementId> CreateWalls(Document doc, IEnumerable<Room> modelRooms, double heightOffset, WallType newWallType,WallSetup wallFinishesSetup)
         {
 
-            Dictionary<ElementId, ElementId> skirtingDictionary = new Dictionary<ElementId, ElementId>();
+            Dictionary<ElementId, ElementId> wallDictionary = new Dictionary<ElementId, ElementId>();
 
-            //Loop on all rooms to get boundaries
+
+            // Перебор помещений для поиска границ
             foreach (Room currentRoom in modelRooms)
             {
+                double VerityRoomHeight = 0;
+                double height = 0;
                 ElementId roomLevelId = currentRoom.LevelId;
+                // Вычисление истиной высоты помещений (Объем/площадь)
+
+                VerityRoomHeight = currentRoom.Volume / currentRoom.Area;
+
 
                 SpatialElementBoundaryOptions opt = new SpatialElementBoundaryOptions();
                 opt.SpatialElementBoundaryLocation = SpatialElementBoundaryLocation.Finish;
+                // Проврка точки по уровню или по высоте.
+                if (wallFinishesSetup.FromLevel)
+                {
+                    height = currentRoom.Level.Elevation+heightOffset;
 
-                IList<IList<Autodesk.Revit.DB.BoundarySegment>> boundarySegmentArray = currentRoom.GetBoundarySegments(opt);
+                }
+                else
+                {
+                    height = VerityRoomHeight + heightOffset;
+                }
+                                
+
+                IList<IList<BoundarySegment>> boundarySegmentArray = currentRoom.GetBoundarySegments(opt);
                 if (null == boundarySegmentArray)  //the room may not be bound
                 {
                     continue;
                 }
 
-                foreach (IList<Autodesk.Revit.DB.BoundarySegment> boundarySegArr in boundarySegmentArray)
+                foreach (IList<BoundarySegment> boundarySegArr in boundarySegmentArray)
                 {
                     if (0 == boundarySegArr.Count)
                     {
@@ -208,9 +226,10 @@ namespace RM
                     }
                     else
                     {
-                        foreach (Autodesk.Revit.DB.BoundarySegment boundarySegment in boundarySegArr)
+                        //TaskDialog.Show("Check", heightOffset.ToString()+"\n"+ currentRoom.Level.Elevation.ToString());
+                        foreach (BoundarySegment boundarySegment in boundarySegArr)
                         {
-                            //Check if the boundary is a room separation lines
+                            // Проверка границы на то, является ли она разделителем помещения
                             Element boundaryElement = doc.GetElement(boundarySegment.ElementId);
 
                             if (boundaryElement == null) { continue; }
@@ -220,11 +239,12 @@ namespace RM
 
                             if (boundaryElement.Category.Id != RoomSeparetionLineCat.Id)
                             {
+
                                 Wall currentWall = Wall.Create(doc, boundarySegment.GetCurve(), newWallType.Id, roomLevelId, height, 0, false, false);
                                 Parameter wallJustification = currentWall.get_Parameter(BuiltInParameter.WALL_KEY_REF_PARAM);
                                 wallJustification.Set(2);
 
-                                skirtingDictionary.Add(currentWall.Id, boundarySegment.ElementId);
+                                wallDictionary.Add(currentWall.Id, boundarySegment.ElementId);
                             }
                         }
                     }
@@ -232,7 +252,7 @@ namespace RM
 
             }
 
-            return skirtingDictionary;
+            return wallDictionary;
         }
 
         private WallType DuplicateWallType(WallType wallType, Document doc)
@@ -288,11 +308,7 @@ namespace RM
             return newWallType;
         }
 
-        /// <summary>
-        /// Implements the FailuresProcessing event
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void FailuresProcessing(object sender, Autodesk.Revit.DB.Events.FailuresProcessingEventArgs e)
         {
             FailuresAccessor failuresAccessor = e.GetFailuresAccessor();

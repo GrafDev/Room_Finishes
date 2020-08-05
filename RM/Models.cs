@@ -11,16 +11,16 @@ namespace RM
     public class WallSetup
     {
         public WallType SelectedWallType { get; set; }
-        public double BoardHeight { get; set; }
+        public double OffsetWallHeight { get; set; }
         public bool JoinWall { get; set; }
         public List<Room> SelectedRooms { get; set; }
-
+        public bool FromLevel { get; set; }
     }
 
     public class FloorsSetup
     {
         public FloorType SelectedFloorType { get; set; }
-        public double OffsetHeight { get; set; }
+        public double OffsetFloorHeight { get; set; }
         public Parameter RoomParameter { get; set; }
         public List<Room> SelectedRooms { get; set; }
 

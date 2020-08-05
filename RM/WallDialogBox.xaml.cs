@@ -33,13 +33,13 @@ namespace RM
         private UIDocument _UIDoc;
 
         private IEnumerable<WallType> _wallTypes;
-        public readonly WallSetup SkirtingBoardSetup;
+        public readonly WallSetup WallBoardSetup;
         public WallDialogBox(UIDocument UIDoc, WallSetup skirtingBoardSetup)
         {
             InitializeComponent();
             _doc = UIDoc.Document;
             _UIDoc = UIDoc;
-            SkirtingBoardSetup = skirtingBoardSetup;
+            WallBoardSetup = skirtingBoardSetup;
 
             //Fill out Text in form
             this.Title = Util.GetLanguageResources.GetString("roomFinishes_TaskDialogName", Util.Cult);
@@ -49,6 +49,8 @@ namespace RM
             this.Cancel_Button.Content = Util.GetLanguageResources.GetString("roomFinishes_Cancel_Button", Util.Cult);
             this.Ok_Button.Content = Util.GetLanguageResources.GetString("roomFinishes_OK_Button", Util.Cult);
             this.groupboxParam.Header = Util.GetLanguageResources.GetString("roomFinishes_groupboxName", Util.Cult);
+            this.from_level_radio.Content = Util.GetLanguageResources.GetString("roomFinishes_from_level_Radio", Util.Cult);
+            this.to_height_radio.Content = Util.GetLanguageResources.GetString("roomFinishes_to_height_Radio", Util.Cult);
             this.HeightTextBox.Text = "0";
 
 
@@ -67,53 +69,57 @@ namespace RM
             // Обнаружение помещений для вытаскивания парметров
             IList<Element> roomList = new FilteredElementCollector(_doc).OfCategory(BuiltInCategory.OST_Rooms).ToList();
 
-
-            if (roomList.Count != 0)
-            {
-                // Заполнение необходимыми парметрами выпадающую полосу
-                Room room = roomList.First() as Room;
-                List<Parameter> doubleParam = new List<Parameter>(3);
-                doubleParam.Insert(0, room.get_Parameter(BuiltInParameter.ROOM_UPPER_OFFSET));
-                doubleParam.Insert(1, room.get_Parameter(BuiltInParameter.ROOM_LEVEL_ID));
-                paramSelector.ItemsSource = doubleParam;
-                paramSelector.DisplayMemberPath = "Definition.Name";
-                paramSelector.SelectedIndex = 0;
-            }
-            else
-            {
-
-                paramSelector.IsEnabled = false;
-
-            }
-
-
         }
 
         private void Ok_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (Util.GetFromString(HeightTextBox.Text, _doc.GetUnits()) != null)
-            {                
-                SkirtingBoardSetup.BoardHeight = (double)Util.GetFromString(HeightTextBox.Text, _doc.GetUnits());
-
-                if (WallTypeListBox.SelectedItem != null)
+            if (from_level_radio.IsChecked.Value)
+            {
+                if (Util.GetFromString(HeightTextBox.Text, _doc.GetUnits()) != null && Util.GetFromString(HeightTextBox.Text, _doc.GetUnits()) != 0)
                 {
-                    //Select wall type for skirting board
-                    SkirtingBoardSetup.JoinWall = true;
-                    SkirtingBoardSetup.SelectedWallType = WallTypeListBox.SelectedItem as WallType;
+                    double tempHeight = (double)Util.GetFromString(HeightTextBox.Text, _doc.GetUnits());
+                    WallBoardSetup.FromLevel = true;
+                    WallBoardSetup.OffsetWallHeight = tempHeight;
 
-                    this.DialogResult = true;
-                    this.Close();
-
-                    //Select the rooms
-                    SkirtingBoardSetup.SelectedRooms = SelectRooms().ToList();
                 }
+                else
+                {
+                    TaskDialog.Show(Util.GetLanguageResources.GetString("roomFinishes_TaskDialogName", Util.Cult),
+                        Util.GetLanguageResources.GetString("roomFinishes_heightValueError", Util.Cult), TaskDialogCommonButtons.Close, TaskDialogResult.Close);
+                    this.Activate();
+                }
+
             }
             else
             {
-                TaskDialog.Show(Util.GetLanguageResources.GetString("roomFinishes_TaskDialogName", Util.Cult),
-                    Util.GetLanguageResources.GetString("roomFinishes_heightValueError", Util.Cult), TaskDialogCommonButtons.Close, TaskDialogResult.Close);
-                this.Activate();
+                WallBoardSetup.FromLevel = false;
+
+                if (Util.GetFromString(HeightTextBox.Text, _doc.GetUnits()) != null)
+                {
+                    double tempHeight = (double)Util.GetFromString(HeightTextBox.Text, _doc.GetUnits());
+                    WallBoardSetup.FromLevel = false;
+                    WallBoardSetup.OffsetWallHeight = tempHeight;
+                }
+                else
+                {
+                    TaskDialog.Show(Util.GetLanguageResources.GetString("roomFinishes_TaskDialogName", Util.Cult),
+                        Util.GetLanguageResources.GetString("roomFinishes_heightValueError", Util.Cult), TaskDialogCommonButtons.Close, TaskDialogResult.Close);
+                    this.Activate();
+                }
             }
+            if (WallTypeListBox.SelectedItem != null)
+            {
+                //Select wall type for skirting board
+                WallBoardSetup.JoinWall = true;
+                WallBoardSetup.SelectedWallType = WallTypeListBox.SelectedItem as WallType;
+
+                this.DialogResult = true;
+                this.Close();
+
+                //Select the rooms
+                WallBoardSetup.SelectedRooms = SelectRooms().ToList();
+            }
+
         }
 
         private void Cancel_Button_Click(object sender, RoutedEventArgs e)
@@ -149,6 +155,7 @@ namespace RM
                     tempList = ModelRooms.ToList();
                 }
 
+
                 if (tempList.Count == 0)
                 {
                     //Create a selection filter on rooms
@@ -173,8 +180,8 @@ namespace RM
         {
             if (Util.GetFromString(HeightTextBox.Text, _doc.GetUnits()) != null)
             {
-                SkirtingBoardSetup.BoardHeight = (double)Util.GetFromString(HeightTextBox.Text, _doc.GetUnits());
-                HeightTextBox.Text = UnitFormatUtils.Format(_doc.GetUnits(), UnitType.UT_Length, SkirtingBoardSetup.BoardHeight, true, true);
+                WallBoardSetup.OffsetWallHeight = (double)Util.GetFromString(HeightTextBox.Text, _doc.GetUnits());
+                HeightTextBox.Text = UnitFormatUtils.Format(_doc.GetUnits(), UnitType.UT_Length, WallBoardSetup.OffsetWallHeight, true, true);
 
             }
             else

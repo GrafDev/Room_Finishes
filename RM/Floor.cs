@@ -102,7 +102,7 @@ namespace RM
                         double height;
  
                         Parameter roomParameter = room.get_Parameter(floorsFinishesSetup.RoomParameter.Definition);
-                        height = roomParameter.AsDouble()+ floorsFinishesSetup.OffsetHeight;
+                        height = roomParameter.AsDouble()+ floorsFinishesSetup.OffsetFloorHeight;
 
 
                         SpatialElementBoundaryOptions opt = new SpatialElementBoundaryOptions();
