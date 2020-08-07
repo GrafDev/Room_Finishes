@@ -145,7 +145,7 @@ Board</value>
   <data name="roomFinishes_select_wall_label" xml:space="preserve">
     <value>Select a wall type for a skirting board :</value>
   </data>
-  <data name="roomFinishes_TaskDialogName" xml:space="preserve">
+  <data name="roomFinishes_Name" xml:space="preserve">
     <value>Create skirting board</value>
   </data>
   <data name="roomFinishes_toolTip" xml:space="preserve">
@@ -219,5 +219,14 @@ Board</value>
   </data>
   <data name="roomFinishes_to_height_Radio" xml:space="preserve">
     <value>roomFinishes_to_height_Radio</value>
+  </data>
+  <data name="roomFinishes_height_textBox" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="roomFinishes_groupboxParamName" xml:space="preserve">
+    <value>----</value>
+  </data>
+  <data name="roomFinishes_groupboxRoomName" xml:space="preserve">
+    <value>----</value>
   </data>
 </root>

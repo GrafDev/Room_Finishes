@@ -13,7 +13,7 @@ using RM;
 namespace RM
 {
     [Transaction(TransactionMode.Manual)]    
-    public class Floor : IExternalCommand
+    public class FloorFinish : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -25,7 +25,7 @@ namespace RM
                 try
                 {
                     // Add Your Code Here
-                    FloorFinish(UIdoc, tx);
+                    FinishFloor(UIdoc, tx);
                     // Return Success
                     return Result.Succeeded;
                 }
@@ -63,7 +63,7 @@ namespace RM
             }
         }
 
-        void FloorFinish(UIDocument UIDoc, Transaction tx)
+        void FinishFloor(UIDocument UIDoc, Transaction tx)
         {
             Document document = UIDoc.Document;
             
@@ -100,13 +100,11 @@ namespace RM
                     {
                         //Get all finish properties
                         double height;
- 
+                        
                         Parameter roomParameter = room.get_Parameter(floorsFinishesSetup.RoomParameter.Definition);
                         height = roomParameter.AsDouble()+ floorsFinishesSetup.OffsetFloorHeight;
-
-
+                        
                         SpatialElementBoundaryOptions opt = new SpatialElementBoundaryOptions();
-
 
                         IList<IList<Autodesk.Revit.DB.BoundarySegment>> boundarySegments = room.GetBoundarySegments(opt);
 

@@ -251,6 +251,33 @@ namespace RM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ----.
+        /// </summary>
+        internal static string roomFinishes_groupboxParamName {
+            get {
+                return ResourceManager.GetString("roomFinishes_groupboxParamName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ----.
+        /// </summary>
+        internal static string roomFinishes_groupboxRoomName {
+            get {
+                return ResourceManager.GetString("roomFinishes_groupboxRoomName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0.
+        /// </summary>
+        internal static string roomFinishes_height_textBox {
+            get {
+                return ResourceManager.GetString("roomFinishes_height_textBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter a height value for the skirting board :.
         /// </summary>
         internal static string roomFinishes_heightValueError {
@@ -265,6 +292,15 @@ namespace RM.Resources {
         internal static string roomFinishes_joinWalls {
             get {
                 return ResourceManager.GetString("roomFinishes_joinWalls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create skirting board.
+        /// </summary>
+        internal static string roomFinishes_Name {
+            get {
+                return ResourceManager.GetString("roomFinishes_Name", resourceCulture);
             }
         }
         
@@ -310,15 +346,6 @@ namespace RM.Resources {
         internal static string roomFinishes_SelectRooms {
             get {
                 return ResourceManager.GetString("roomFinishes_SelectRooms", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Create skirting board.
-        /// </summary>
-        internal static string roomFinishes_TaskDialogName {
-            get {
-                return ResourceManager.GetString("roomFinishes_TaskDialogName", resourceCulture);
             }
         }
         

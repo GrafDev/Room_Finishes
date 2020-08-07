@@ -33,6 +33,7 @@ namespace RM
 
                         // Мы писали мы писали, наши пальчики устали
                         // Мы немножко отдохнем и опять писать начнем
+                        // Напишу потом еще чегонить сюда
 
                         RoomFinish(uiDoc, tx);
 
@@ -110,24 +111,18 @@ namespace RM
         public void CreateWallFinish(Document doc, Transaction tx, WallSetup wallBoardSetup)
         {
             tx.Start(Util.GetLanguageResources.GetString("roomFinishes_transactionName", Util.Cult));
-
+            // Получаем тип стен отделки из поля типа Wall
             WallType duplicatedWallType = DuplicateWallType(wallBoardSetup.SelectedWallType, doc);
+            // Создаем стены отделки
 
-            // Первод единиц в Футы
-            double heightOffsetWall = UnitUtils.ConvertFromInternalUnits(wallBoardSetup.OffsetWallHeight, DisplayUnitType.DUT_MILLIMETERS);
-
-
-           // Parameter roomParameter = room.get_Parameter(floorsFinishesSetup.RoomParameter.Definition);
-          //  heightOffsetWall = roomParameter.AsDouble() + floorsFinishesSetup.OffsetHeight;
-
-            Dictionary<ElementId, ElementId> skirtingDictionary = CreateWalls(doc,
+            Dictionary<ElementId, ElementId> wallDictionary = CreateWalls(doc,
                 wallBoardSetup.SelectedRooms,
-                heightOffsetWall, duplicatedWallType,wallBoardSetup);
+                wallBoardSetup.OffsetWallHeight, duplicatedWallType,wallBoardSetup);
 
             FailureHandlingOptions options = tx.GetFailureHandlingOptions();
 
-            options.SetFailuresPreprocessor(new PlintePreprocessor());
-            // Now, showing of any eventual mini-warnings will be postponed until the following transaction.
+            options.SetFailuresPreprocessor(new PlintePreprocessor()); // Откладываем предупреждения на потом
+
             tx.Commit(options);
 
             TransactionStatus transactionStatus = tx.GetStatus();
@@ -137,21 +132,21 @@ namespace RM
                 tx.Start(Util.GetLanguageResources.GetString("roomFinishes_transactionName", Util.Cult));
 
 
-                List<ElementId> addedIds = new List<ElementId>(skirtingDictionary.Keys);
-                foreach (ElementId addedSkirtingId in addedIds)
+                List<ElementId> addedIds = new List<ElementId>(wallDictionary.Keys);
+                foreach (ElementId addedWallId in addedIds)
                 {
-                    if (doc.GetElement(addedSkirtingId) == null)
+                    if (doc.GetElement(addedWallId) == null)
                     {
-                        skirtingDictionary.Remove(addedSkirtingId);
+                        wallDictionary.Remove(addedWallId);
                     }
                 }
 
-                Element.ChangeTypeId(doc, skirtingDictionary.Keys, wallBoardSetup.SelectedWallType.Id);
+                Element.ChangeTypeId(doc, wallDictionary.Keys, wallBoardSetup.SelectedWallType.Id);
 
                 // Соединение стен
                 if (wallBoardSetup.JoinWall)
                 {
-                    JoinGeometry(doc, skirtingDictionary);
+                    JoinGeometry(doc, wallDictionary);
                 }
 
                 doc.Delete(duplicatedWallType.Id);
@@ -190,28 +185,30 @@ namespace RM
             // Перебор помещений для поиска границ
             foreach (Room currentRoom in modelRooms)
             {
-                double VerityRoomHeight = 0;
+                double verityRoomHeight = 0;
                 double height = 0;
                 ElementId roomLevelId = currentRoom.LevelId;
                 // Вычисление истиной высоты помещений (Объем/площадь)
-
-                VerityRoomHeight = currentRoom.Volume / currentRoom.Area;
-
+                verityRoomHeight = currentRoom.Volume / currentRoom.Area;
 
                 SpatialElementBoundaryOptions opt = new SpatialElementBoundaryOptions();
                 opt.SpatialElementBoundaryLocation = SpatialElementBoundaryLocation.Finish;
-                // Проврка точки по уровню или по высоте.
+                // Проверка точки по уровню или по высоте.
+                
                 if (wallFinishesSetup.FromLevel)
                 {
-                    height = currentRoom.Level.Elevation+heightOffset;
+                    height = heightOffset;
+                   // HACK: TaskDialog.Show("Если от уровня", "verity h="+ verityRoomHeight.ToString() + "\n" + "h=" + height.ToString());
 
                 }
                 else
                 {
-                    height = VerityRoomHeight + heightOffset;
+                    height = verityRoomHeight + heightOffset;
+                    // HACK: TaskDialog.Show("Если от высоты", "verity h="+ verityRoomHeight.ToString() + "\n" + "h=" + height.ToString());
                 }
-                                
 
+                
+                // HACK: TaskDialog.Show("перед возведением", "verity h="+verityRoomHeight.ToString()+"\n"+"h="+height.ToString());
                 IList<IList<BoundarySegment>> boundarySegmentArray = currentRoom.GetBoundarySegments(opt);
                 if (null == boundarySegmentArray)  //the room may not be bound
                 {
@@ -226,7 +223,7 @@ namespace RM
                     }
                     else
                     {
-                        //TaskDialog.Show("Check", heightOffset.ToString()+"\n"+ currentRoom.Level.Elevation.ToString());
+                        // HACK: TaskDialog.Show("Check", heightOffset.ToString()+"\n"+ currentRoom.Level.Elevation.ToString());
                         foreach (BoundarySegment boundarySegment in boundarySegArr)
                         {
                             // Проверка границы на то, является ли она разделителем помещения

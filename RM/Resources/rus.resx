@@ -142,10 +142,10 @@
     <value>Только выбранные помещения</value>
   </data>
   <data name="roomFinishes_select_wall_label" xml:space="preserve">
-    <value>Выберите тип стены для отделки:</value>
+    <value>Выбор типа стены для отделки</value>
   </data>
   <data name="roomFinishes_TaskDialogName" xml:space="preserve">
-    <value>Создать стены отделки помещений</value>
+    <value>Создание стен отделки помещений</value>
   </data>
   <data name="roomFinishes_toolTip" xml:space="preserve">
     <value>Создать стены отделки помещений</value>
@@ -178,16 +178,16 @@
     <value>Выберите помещения</value>
   </data>
   <data name="floor_heightValueError" xml:space="preserve">
-    <value>Пожалуйста, введите значение высоты пола:</value>
+    <value>Пожалуйста, введите корректное значение высоты пола</value>
   </data>
   <data name="floor_ribbon_panel_name" xml:space="preserve">
     <value>Напольные покрытия</value>
   </data>
   <data name="floor_select_floor_label" xml:space="preserve">
-    <value>Выберите тип пола:</value>
+    <value>Выбор типа пола отделки</value>
   </data>
   <data name="floor_TaskDialogName" xml:space="preserve">
-    <value>Создать отделку пола</value>
+    <value>Создание отделки пола</value>
   </data>
   <data name="floor_toolTip" xml:space="preserve">
     <value>Создать тип отделки ????</value>
@@ -210,7 +210,7 @@
   <data name="floor_noRoomError" xml:space="preserve">
     <value>В данной модели нет места</value>
   </data>
-  <data name="roomFinishes_groupboxName" xml:space="preserve">
+  <data name="roomFinishes_groupboxParamName" xml:space="preserve">
     <value>Верхний предел стен отделки помещений</value>
   </data>
   <data name="roomFinishes_from_level_Radio" xml:space="preserve">
@@ -218,5 +218,14 @@
   </data>
   <data name="roomFinishes_to_height_Radio" xml:space="preserve">
     <value>Расчет от высоты помещения</value>
+  </data>
+  <data name="roomFinishes_height_textBox" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="roomFinishes_groupboxRoomName" xml:space="preserve">
+    <value>Выбор помещений для установки стен отделки</value>
+  </data>
+  <data name="floor_groupboxRoomSelectName" xml:space="preserve">
+    <value>Выбор помещений для установки отделки пола</value>
   </data>
 </root>

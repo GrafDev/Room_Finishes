@@ -12,7 +12,7 @@ namespace RM
     {
         public WallType SelectedWallType { get; set; }
         public double OffsetWallHeight { get; set; }
-        public bool JoinWall { get; set; }
+        public bool JoinWall = true;
         public List<Room> SelectedRooms { get; set; }
         public bool FromLevel { get; set; }
     }

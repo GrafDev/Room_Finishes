@@ -22,7 +22,7 @@ namespace RM
         public Result OnStartup(UIControlledApplication application)
         {
             UIControlledApplication app = application;
-
+            Util.GetLocalisationValues(app);
             string panelName = "Room Finish";//Имя панели плагина
             string imageWallSmall = "RM.RM2_wall_Small.png";/// Иконки комманд
             string imageWallLarge = "RM.RM2_wall_Large.png";
@@ -35,11 +35,11 @@ namespace RM
             string imageParLarge = "RM.iconParametersLarge.png";///
 
             string classWallName = "RM.WallFinish";// Имя Класса для маркировки
-            string classFroolName = "RM.Floor";//Имя класса для очистки
+            string classFroolName = "RM.FloorFinish";//Имя класса для очистки
             string classParName = "RM.Parameters";// Имя класса для параметров
 
 
-            Util.GetLocalisationValues();
+            
             string thisAssembyPath = Assembly.GetExecutingAssembly().Location;
             RibbonPanel ribbonPanel = application.CreateRibbonPanel(panelName);//Установка панели
             ribbonPanel.Enabled = true;

@@ -70,6 +70,15 @@ namespace RM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Выбор помещений для установки отделки пола.
+        /// </summary>
+        internal static string floor_groupboxRoomSelectName {
+            get {
+                return ResourceManager.GetString("floor_groupboxRoomSelectName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to От уровня.
         /// </summary>
         internal static string floor_height_label {
@@ -88,7 +97,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Пожалуйста, введите значение высоты пола:.
+        ///   Looks up a localized string similar to Пожалуйста, введите корректное значение высоты пола.
         /// </summary>
         internal static string floor_heightValueError {
             get {
@@ -115,7 +124,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Выберите тип пола:.
+        ///   Looks up a localized string similar to Выбор типа пола отделки.
         /// </summary>
         internal static string floor_select_floor_label {
             get {
@@ -124,7 +133,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Создать отделку пола.
+        ///   Looks up a localized string similar to Создание отделки пола.
         /// </summary>
         internal static string floor_TaskDialogName {
             get {
@@ -252,9 +261,27 @@ namespace RM.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Верхний предел стен отделки помещений.
         /// </summary>
-        internal static string roomFinishes_groupboxName {
+        internal static string roomFinishes_groupboxParamName {
             get {
-                return ResourceManager.GetString("roomFinishes_groupboxName", resourceCulture);
+                return ResourceManager.GetString("roomFinishes_groupboxParamName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Выбор помещений для установки стен отделки.
+        /// </summary>
+        internal static string roomFinishes_groupboxRoomName {
+            get {
+                return ResourceManager.GetString("roomFinishes_groupboxRoomName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0.
+        /// </summary>
+        internal static string roomFinishes_height_textBox {
+            get {
+                return ResourceManager.GetString("roomFinishes_height_textBox", resourceCulture);
             }
         }
         
@@ -286,7 +313,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Выберите тип стены для отделки:.
+        ///   Looks up a localized string similar to Выбор типа стены для отделки.
         /// </summary>
         internal static string roomFinishes_select_wall_label {
             get {
@@ -313,7 +340,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Создать стены отделки помещений.
+        ///   Looks up a localized string similar to Создание стен отделки помещений.
         /// </summary>
         internal static string roomFinishes_TaskDialogName {
             get {

@@ -6,33 +6,40 @@ using System.Linq;
 using System.Text;
 using Autodesk.Revit.DB;
 using System.IO;
+using Autodesk.Revit.ApplicationServices;
+using Autodesk.Revit.UI;
+using Autodesk.RevitAddIns;
 
 namespace RM
 {
     class Util
     {
         // Define cultureInfo
-        public static ResourceManager GetLanguageResources = new System.Resources.ResourceManager("RM.Resources.rus", System.Reflection.Assembly.GetExecutingAssembly());   // declare Resource manager to access to specific cultureinfo
-        public static CultureInfo Cult = CultureInfo.CreateSpecificCulture("ru");         // declare culture info
+        public static ResourceManager GetLanguageResources;   // declare Resource manager to access to specific cultureinfo
+        public static CultureInfo Cult;        // declare culture info
 
-        public static void GetLocalisationValues()
+        public static void GetLocalisationValues(UIControlledApplication application)
         {
-
-            // Create the culture for russian
-            Util.Cult = CultureInfo.CreateSpecificCulture("ru");
-            Util.GetLanguageResources = new System.Resources.ResourceManager("RM.Resources.rus", System.Reflection.Assembly.GetExecutingAssembly());
-            // Create the culture for english
-            // Util.Cult = CultureInfo.CreateSpecificCulture("en");
-            // Util.GetLanguageResources = new System.Resources.ResourceManager("RM.Resources.eng", System.Reflection.Assembly.GetExecutingAssembly());
+            string lang = application.ControlledApplication.Language.ToString();
+            if (lang == "Russian")
+            {
+                // Create the culture for russian
+                Util.Cult = CultureInfo.CreateSpecificCulture("ru");
+                Util.GetLanguageResources = new System.Resources.ResourceManager("RM.Resources.rus", System.Reflection.Assembly.GetExecutingAssembly());
+            }
+            else
+            {
+                // Create the culture for english
+                Util.Cult = CultureInfo.CreateSpecificCulture("en");
+                Util.GetLanguageResources = new System.Resources.ResourceManager("RM.Resources.eng", System.Reflection.Assembly.GetExecutingAssembly());
+            }
         }
 
-        public static double? GetFromString(string text, Units units)
+        public static double? GetFromString(string heightValueString, Units units)
         {
             // Check the string value
-            string heightValueString = text;
             double lenght;
-
-            if (UnitFormatUtils.TryParse(units, UnitType.UT_Length, heightValueString, out lenght))
+            if (Autodesk.Revit.DB.UnitFormatUtils.TryParse(units, UnitType.UT_Length, heightValueString, out lenght))
             {
                 return lenght;
             }

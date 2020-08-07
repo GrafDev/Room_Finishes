@@ -52,6 +52,8 @@ namespace RM
             this.selectRoomRadio.Content = Util.GetLanguageResources.GetString("roomFinishes_selected_rooms_radio", Util.Cult);
             this.cancelButton.Content = Util.GetLanguageResources.GetString("roomFinishes_Cancel_Button", Util.Cult);
             this.okButton.Content = Util.GetLanguageResources.GetString("roomFinishes_OK_Button", Util.Cult);
+            this.groupboxRoomSelect.Header = Util.GetLanguageResources.GetString("floor_groupboxRoomSelectName", Util.Cult);
+
 
 
             // Выделение полов в файле
@@ -94,31 +96,32 @@ namespace RM
 
         private void Ok_Button_Click(object sender, RoutedEventArgs e)
         {
-            // Назначение высот от параметра помещения
+            // Назначение пармемтра помещения от которого будет браться высота положения перекрытия 
             FloorSetup.RoomParameter = paramSelector.SelectedItem as Parameter;
-            
-                if (Util.GetFromString(Height_TextBox.Text, _doc.GetUnits()) != null)
+
+
+            if (Util.GetFromString(Height_TextBox.Text, _doc.GetUnits()) != null)
+            {
+                FloorSetup.OffsetFloorHeight = (double)Util.GetFromString(Height_TextBox.Text, _doc.GetUnits());
+
+                if (FloorTypeListBox.SelectedItem != null)
                 {
-                    FloorSetup.OffsetFloorHeight = (double)Util.GetFromString(Height_TextBox.Text, _doc.GetUnits());
+                    // Выбор типа плиты
+                    FloorSetup.SelectedFloorType = FloorTypeListBox.SelectedItem as FloorType;
 
-                    if (FloorTypeListBox.SelectedItem != null)
-                    {
-                        // Выбор типа плиты
-                        FloorSetup.SelectedFloorType = FloorTypeListBox.SelectedItem as FloorType;
+                    this.DialogResult = true;
+                    this.Close();
 
-                        this.DialogResult = true;
-                        this.Close();
-
-                        // Выбор помещений
-                        FloorSetup.SelectedRooms = SelectRooms().ToList();
-                    }
+                    // Выбор помещений
+                    FloorSetup.SelectedRooms = SelectRooms().ToList();
                 }
-                else
-                {
-                    TaskDialog.Show(Util.GetLanguageResources.GetString("floor_TaskDialogName", Util.Cult),
-                        Util.GetLanguageResources.GetString("floor_heightValueError", Util.Cult), TaskDialogCommonButtons.Close, TaskDialogResult.Close);
-                    this.Activate();
-                }    
+            }
+            else
+            {
+                TaskDialog.Show(Util.GetLanguageResources.GetString("floor_TaskDialogName", Util.Cult),
+                    Util.GetLanguageResources.GetString("floor_heightValueError", Util.Cult), TaskDialogCommonButtons.Close, TaskDialogResult.Close);
+                this.Activate();
+            }  
 
         }      
 
@@ -175,7 +178,7 @@ namespace RM
             return ModelRooms;
         }
 
-        private void Height_TextBox_LostFocus(object sender, RoutedEventArgs e)
+        private void Height_TextBox_Floor(object sender, RoutedEventArgs e)
         {
 
             if (Util.GetFromString(Height_TextBox.Text, _doc.GetUnits()) != null)
@@ -185,8 +188,8 @@ namespace RM
             }
             else
             {
-                TaskDialog.Show(Util.GetLanguageResources.GetString("roomFinishes_TaskDialogName", Util.Cult),
-                    Util.GetLanguageResources.GetString("roomFinishes_heightValueError", Util.Cult), TaskDialogCommonButtons.Close, TaskDialogResult.Close);
+                TaskDialog.Show(Util.GetLanguageResources.GetString("floor_TaskDialogName", Util.Cult),
+                    Util.GetLanguageResources.GetString("floor_heightValueError", Util.Cult), TaskDialogCommonButtons.Close, TaskDialogResult.Close);
                 this.Activate();
             }
         }

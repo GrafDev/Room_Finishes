@@ -6,7 +6,7 @@
              xmlns:PropertyGrid="clr-namespace:UIFramework.PropertyGrid;assembly=UIFramework" x:Class="RM.FloorsControls"
              mc:Ignorable="d"
         IsEnabled="True" Title="Create rooms finishes" DataContext="{Binding}" ShowInTaskbar="False" 
-        WindowStartupLocation="CenterScreen" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Width="500" Height="550" MinWidth="550" MinHeight="500" WindowStyle="ToolWindow">
+        WindowStartupLocation="CenterScreen" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Width="389" Height="356" MinWidth="550" MinHeight="500" WindowStyle="ToolWindow">
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Width" Value="88" />
@@ -17,18 +17,14 @@
             <Setter Property="Margin" Value="0,5,0,5"/>
         </Style>
     </Window.Resources>
-    <Window.Effect>
-        <DropShadowEffect/>
-    </Window.Effect>
-    <Grid Margin="10,10,10,162">
-
-        <StackPanel Margin="0,0,0,-52" MinHeight="60" VerticalAlignment="Bottom" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Height="62">
+    <Grid Margin="10,10,10,5">
+        <StackPanel Margin="0,0,0,115" MinHeight="60" VerticalAlignment="Bottom" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Height="60">
             <RadioButton Content="all_rooms_radio" x:Name="allRoomsRadio" IsChecked="True" Margin="10,5,0,5"/>
             <RadioButton Content="selected_rooms_radio" x:Name="selectRoomRadio" HorizontalAlignment="Left" Margin="10,5,0,5"/>
         </StackPanel>
-        <DockPanel ScrollViewer.CanContentScroll="True" Margin="0,0,0,10">
+        <DockPanel ScrollViewer.CanContentScroll="True" Margin="0,0,0,36">
             <Label DockPanel.Dock="Top" Content="select_floor_label" x:Name="selectFoorLabel"/>
-            <ListBox x:Name ="FloorTypeListBox" ScrollViewer.HorizontalScrollBarVisibility="Hidden" BorderBrush="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" Margin="0,0,0,10" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+            <ListBox x:Name ="FloorTypeListBox" ScrollViewer.HorizontalScrollBarVisibility="Hidden" BorderBrush="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Margin="0,0,0,159">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Label Content="{Binding Name}" />
@@ -36,35 +32,35 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </DockPanel>
-        <GroupBox x:Name="groupboxParam" Header="groupboxParam" Foreground="Black" BorderThickness="0" Grid.IsSharedSizeScope="True" MinHeight="55" Margin="0,0,0,-117" BorderBrush="{x:Null}" VerticalAlignment="Bottom" Height="60">
+        <GroupBox x:Name="groupboxParam" Header="groupboxParam" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" BorderThickness="1" MinHeight="55" Margin="0,0,0,50" BorderBrush="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" VerticalAlignment="Bottom" Height="65" Grid.IsSharedSizeScope="True">
             <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,-12,0" VerticalAlignment="Bottom" Height="37" HorizontalAlignment="Left" Width="522">
 
-                <DockPanel LastChildFill="False" HorizontalAlignment="Left" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}">
+                <DockPanel LastChildFill="False" HorizontalAlignment="Left" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}">
                     <ComboBox x:Name="paramSelector" Margin="5,0,5,8"
                               IsEnabled="True" MinWidth="180" MinHeight="22" Width="229" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="20" VerticalContentAlignment="Center" />
                 </DockPanel>
                 <Label Content="+" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="37" VerticalContentAlignment="Center"/>
                 <DockPanel Margin="0" Width="231" Height="37" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                    <TextBox  TextWrapping="Wrap" Text="0 mm" x:Name="Height_TextBox" Margin="5,8,5,9" LostFocus="Height_TextBox_LostFocus"
+                    <TextBox  TextWrapping="Wrap" Text="0" x:Name="Height_TextBox" Margin="5,8,5,9" LostFocus="Height_TextBox_Floor"
                               IsEnabled="True" HorizontalAlignment="Left" VerticalContentAlignment="Center" UndoLimit="0" VerticalAlignment="Center" MinWidth="100" Height="20" Width="100" MinHeight="20" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
                 </DockPanel>
             </StackPanel>
         </GroupBox>
 
 
-
-        <StackPanel Orientation="Horizontal" MinHeight="45" Margin="0,0,0,-162" Height="32" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="522">
-            <Button Content="Ok_Button" IsDefault="True" x:Name="okButton" Click="Ok_Button_Click" Height="25" Margin="10" MinHeight="25" MinWidth="88" VerticalAlignment="Center" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
+        <StackPanel Orientation="Horizontal" MinHeight="45" Height="45" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="522">
+            <Button Content="Ok_Button" IsDefault="True" x:Name="okButton" Click="Ok_Button_Click" Height="25" Margin="10" MinHeight="25" MinWidth="88" VerticalAlignment="Center" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}">
                 <AutomationProperties.LabeledBy>
                     <PropertyGrid:PropertyGrid/>
                 </AutomationProperties.LabeledBy>
             </Button>
-            <Button Content="Cancel_Button" IsCancel="True" x:Name="cancelButton" Click="Cancel_Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10" Height="25" MinHeight="25" MinWidth="88" VerticalAlignment="Center" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
+            <Button Content="Cancel_Button" IsCancel="True" x:Name="cancelButton" Click="Cancel_Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10" Height="25" MinHeight="25" MinWidth="88" VerticalAlignment="Center" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}">
                 <AutomationProperties.LabeledBy>
                     <PropertyGrid:PropertyGrid/>
                 </AutomationProperties.LabeledBy>
             </Button>
         </StackPanel>
+        <GroupBox x:Name="groupboxRoomSelect" Header="GroupBox" Height="80" Margin="0,0,0,115" VerticalAlignment="Bottom" BorderBrush="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}"/>
 
     </Grid>
 </Window>
