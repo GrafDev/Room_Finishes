@@ -84,6 +84,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutWindowBox.xaml.cs">
+      <DependentUpon>AboutWindowBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AboutWindow.cs" />
     <Compile Include="WallDialogBox.xaml.cs">
       <DependentUpon>WallDialogBox.xaml</DependentUpon>
     </Compile>
@@ -148,6 +152,10 @@
     <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AboutWindowBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WallDialogBox.xaml">
       <Generator>MSBuild:Compile</Generator>

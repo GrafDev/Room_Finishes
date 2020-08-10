@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"             
-             xmlns:PropertyGrid="clr-namespace:UIFramework.PropertyGrid;assembly=UIFramework" x:Class="RM.FloorsControls"
+             xmlns:PropertyGrid="clr-namespace:UIFramework.PropertyGrid;assembly=UIFramework" x:Class="RM.FloorDialogBox"
              mc:Ignorable="d"
         IsEnabled="True" Title="Create rooms finishes" DataContext="{Binding}" ShowInTaskbar="False" 
         WindowStartupLocation="CenterScreen" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Width="389" Height="356" MinWidth="550" MinHeight="500">

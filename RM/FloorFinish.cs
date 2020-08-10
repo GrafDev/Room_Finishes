@@ -70,7 +70,7 @@ namespace RM
             FloorsSetup floorsFinishesSetup = new FloorsSetup();
             //Load the selection form
 
-            FloorsControls floorsFinishesControl = new FloorsControls(UIDoc, floorsFinishesSetup);
+            FloorDialogBox floorsFinishesControl = new FloorDialogBox(UIDoc, floorsFinishesSetup);
 
                 floorsFinishesControl.InitializeComponent();
 

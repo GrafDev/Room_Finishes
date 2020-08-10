@@ -30,14 +30,14 @@ using System.Reflection;
 
 namespace RM
 {
-    public partial class FloorsControls : Window
+    public partial class FloorDialogBox: Window
     {
         private Document _doc;
         private UIDocument _UIDoc;
 
         public readonly FloorsSetup FloorSetup;
 
-        public FloorsControls(UIDocument UIDoc, FloorsSetup floorsSetup)
+        public FloorDialogBox(UIDocument UIDoc, FloorsSetup floorsSetup)
         {
             InitializeComponent();
             _doc = UIDoc.Document;
@@ -173,6 +173,11 @@ namespace RM
 
                     ModelRooms = tempList;
                 }
+            }
+            if (ModelRooms.LongCount() == 0)
+            {
+                TaskDialog.Show(Util.GetLanguageResources.GetString("roomSelectError_TitleDialogBox", Util.Cult),
+                Util.GetLanguageResources.GetString("roomSelectError", Util.Cult), TaskDialogCommonButtons.Close, TaskDialogResult.Close);
             }
 
             return ModelRooms;

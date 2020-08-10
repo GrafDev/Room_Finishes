@@ -23,7 +23,7 @@ namespace RM
         {
             UIControlledApplication app = application;
             Util.GetLocalisationValues(app);
-            string panelName = "Room Finish";//Имя панели плагина
+            string panelName = Util.GetLanguageResources.GetString("groupTitle_ribbonPanel", Util.Cult);//Имя панели плагина
             string imageWallSmall = "RM.RM2_wall_Small.png";/// Иконки комманд
             string imageWallLarge = "RM.RM2_wall_Large.png";
             string imageFloorSmall = "RM.RM2_floor_Small.png";
@@ -31,32 +31,36 @@ namespace RM
             string imageRibbonSmall = "RM.RM2_Small.png";
             string imageRibbonLarge = "RM.RM2_Small.png";//Пришлось поставить маленькую иконку. Большая не помещается
 
-            string imageParSmall = "RM.iconParametersSmall.png";
-            string imageParLarge = "RM.iconParametersLarge.png";///
+            string imageAboutSmall = "RM.iconParameters16.png";
+            string imageAboutLarge = "RM.iconParameters32.png";///
 
             string classWallName = "RM.WallFinish";// Имя Класса для маркировки
             string classFroolName = "RM.FloorFinish";//Имя класса для очистки
-            string classParName = "RM.Parameters";// Имя класса для параметров
-
-
+            string classAbout = "RM.AboutWindow";// Имя класса для параметров
+            string groupTitle= Util.GetLanguageResources.GetString("groupTitle_ribbonPanel", Util.Cult);
+            string wallTitle = Util.GetLanguageResources.GetString("wallTitle_ribbonPanel", Util.Cult);
+            string floorTitle = Util.GetLanguageResources.GetString("floorTitle_ribbonPanel", Util.Cult);
+            string aboutTitle = Util.GetLanguageResources.GetString("aboutTitle_ribbonPanel", Util.Cult);
             
+
+
             string thisAssembyPath = Assembly.GetExecutingAssembly().Location;
             RibbonPanel ribbonPanel = application.CreateRibbonPanel(panelName);//Установка панели
             ribbonPanel.Enabled = true;
             ribbonPanel.Visible = true;
 
-            PulldownButtonData group1Data = new PulldownButtonData("PulldownGroup","RM");// Установка группы комманд
+            PulldownButtonData group1Data = new PulldownButtonData("PulldownGroup", groupTitle);// Установка группы комманд
             group1Data.Image = GetEmbeddedImage(imageRibbonSmall);
             group1Data.LargeImage = GetEmbeddedImage(imageRibbonLarge);
             PulldownButton group1 = ribbonPanel.AddItem(group1Data) as PulldownButton;
 
-            PushButtonData buttonWallData = new PushButtonData("Name1", "Wall", thisAssembyPath, classWallName);//Комманда стен
+            PushButtonData buttonWallData = new PushButtonData("Name1", wallTitle, thisAssembyPath, classWallName);//Комманда стен
             PushButton pushMarkButton = group1.AddPushButton(buttonWallData) as PushButton;
             pushMarkButton.Image = GetEmbeddedImage(imageWallSmall);
             pushMarkButton.LargeImage = GetEmbeddedImage(imageWallLarge);
             pushMarkButton.ClassName = classWallName;
 
-            PushButtonData buttonFloorData = new PushButtonData("Name2", "Floor", thisAssembyPath, classFroolName);//Комманда пола
+            PushButtonData buttonFloorData = new PushButtonData("Name2", floorTitle, thisAssembyPath, classFroolName);//Комманда пола
             PushButton pushCleanButton = group1.AddPushButton(buttonFloorData) as PushButton;
             pushCleanButton.Image = GetEmbeddedImage(imageFloorSmall);
             pushCleanButton.LargeImage = GetEmbeddedImage(imageFloorLarge);
@@ -64,11 +68,11 @@ namespace RM
 
             group1.AddSeparator();
 
-            PushButtonData buttonParData = new PushButtonData("Name3", "Parameters", thisAssembyPath, classParName);//Команда параметров
-            PushButton pushParButton = group1.AddPushButton(buttonParData) as PushButton;
-            pushParButton.Image = GetEmbeddedImage(imageParSmall);
-            pushParButton.LargeImage = GetEmbeddedImage(imageParLarge);
-            pushParButton.ClassName = classParName;
+            PushButtonData buttonAboutData = new PushButtonData("Name3", aboutTitle, thisAssembyPath, classAbout);//Команда параметров
+            PushButton pushAboutButton = group1.AddPushButton(buttonAboutData) as PushButton;
+            pushAboutButton.Image = GetEmbeddedImage(imageAboutSmall);
+            pushAboutButton.LargeImage = GetEmbeddedImage(imageAboutLarge);
+            pushAboutButton.ClassName = classAbout;
 
             return Result.Succeeded;
 

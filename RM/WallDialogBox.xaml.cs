@@ -57,7 +57,7 @@ namespace RM
             this.groupBoxRoom.Header = Util.GetLanguageResources.GetString("roomFinishes_groupboxRoomName", Util.Cult);
             this.HeightTextBox.BorderBrush = Brushes.DarkGray;
             this.HeightTextBox.BorderThickness = new Thickness(1, 1, 1, 1);
-            //Select the wall type in the document
+            // Выбор типа стены в файле
             _wallTypes = from elem in new FilteredElementCollector(_doc).OfClass(typeof(WallType))
                          let type = elem as WallType
                          where type.Kind == WallKind.Basic
@@ -108,7 +108,7 @@ namespace RM
                         //    Util.GetLanguageResources.GetString("roomFinishes_heightValueError", Util.Cult), TaskDialogCommonButtons.Close, TaskDialogResult.Close);
 
                         this.HeightTextBox.BorderBrush = Brushes.Red;
-                        this.HeightTextBox.BorderThickness = new Thickness(1, 1, 1, 1);
+                        this.HeightTextBox.BorderThickness = new Thickness(2, 2, 2, 2);
                         this.Activate();
                     }
                 }
@@ -191,10 +191,20 @@ namespace RM
                         tempList.Add(_doc.GetElement(r) as Room);
                     }
 
+
                     ModelRooms = tempList;
                 }
             }
-
+            if (ModelRooms.LongCount() == 0 && all_rooms_radio.IsChecked.Value)
+            {
+                TaskDialog.Show(Util.GetLanguageResources.GetString("roomSelectError_TitleDialogBox", Util.Cult),
+                Util.GetLanguageResources.GetString("roomAutoSelectError", Util.Cult), TaskDialogCommonButtons.Close, TaskDialogResult.Close);
+            }
+            else if (ModelRooms.LongCount() == 0)
+            {
+                TaskDialog.Show(Util.GetLanguageResources.GetString("roomSelectError_TitleDialogBox", Util.Cult),
+                Util.GetLanguageResources.GetString("roomSelectError", Util.Cult), TaskDialogCommonButtons.Close, TaskDialogResult.Close);
+            }
             return ModelRooms;
         }
 

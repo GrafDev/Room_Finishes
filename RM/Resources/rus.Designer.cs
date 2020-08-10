@@ -61,6 +61,33 @@ namespace RM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Плагин RoomFinish разработан компанией BIMpel
+        ///
+        ///ЛИЦЕНЗИОННОЕ СОГЛАШЕНИЕ.
+        ///Эта программа защищена национальными законами и международными соглашениями об авторском праве. Исключительные права на использование этой программой принадлежат ее автору/издателю.
+        ///
+        ///Программой и ее компонентами можно пользоваться бесплатно, без лицензионных отчислений неограниченное время.
+        ///
+        ///Запрещено коммерческое распространение программы. (За распространение программы запрещено брать деньги).
+        ///
+        ///Программа поставляется &quot;как есть [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string About_Text {
+            get {
+                return ResourceManager.GetString("About_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        internal static string aboutTitle_ribbonPanel {
+            get {
+                return ResourceManager.GetString("aboutTitle_ribbonPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Отметка верха отделки пола.
         /// </summary>
         internal static string floor_groupboxName {
@@ -169,6 +196,25 @@ namespace RM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Отделка пола.
+        /// </summary>
+        internal static string floorTitle_ribbonPanel {
+            get {
+                return ResourceManager.GetString("floorTitle_ribbonPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отделка
+        ///помещений.
+        /// </summary>
+        internal static string groupTitle_ribbonPanel {
+            get {
+                return ResourceManager.GetString("groupTitle_ribbonPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Максимальная высота низа.
         /// </summary>
         internal static string levelTag_bottom_elevation_max {
@@ -210,6 +256,15 @@ namespace RM.Resources {
         internal static string levelTag_top_elevation_min {
             get {
                 return ResourceManager.GetString("levelTag_top_elevation_min", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отделка не выполнена, так как не было найдено ни одного помещения. Попробуйте перейти на другой вид и выполнить команду еще раз..
+        /// </summary>
+        internal static string roomAutoSelectError {
+            get {
+                return ResourceManager.GetString("roomAutoSelectError", resourceCulture);
             }
         }
         
@@ -390,6 +445,33 @@ namespace RM.Resources {
         internal static string roomFinishes_verticallyCompoundError {
             get {
                 return ResourceManager.GetString("roomFinishes_verticallyCompoundError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отделка не выполнена, так как не было выбрано ни одного помещения..
+        /// </summary>
+        internal static string roomSelectError {
+            get {
+                return ResourceManager.GetString("roomSelectError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка выбора помещений.
+        /// </summary>
+        internal static string roomSelectError_TitleDialogBox {
+            get {
+                return ResourceManager.GetString("roomSelectError_TitleDialogBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отделка стен.
+        /// </summary>
+        internal static string wallTitle_ribbonPanel {
+            get {
+                return ResourceManager.GetString("wallTitle_ribbonPanel", resourceCulture);
             }
         }
     }

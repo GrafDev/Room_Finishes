@@ -61,6 +61,26 @@ namespace RM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to RoomFinish plugin developed by BIMpel
+        ///
+        ///LICENSE AGREEMENT.
+        ///This software is protected by national copyright laws and international treaties. The exclusive rights to use this program belong to its author / publisher.
+        ///
+        ///The program and its components can be used for free, without license fees, for an unlimited time.
+        ///
+        ///Commercial distribution of the program is prohibited. (It is forbidden to take money for distributing the program).
+        ///
+        ///The software is supplied &quot;as is&quot;.
+        ///
+        ///The program can be included in pai [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string About_Text {
+            get {
+                return ResourceManager.GetString("About_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Floor height.
         /// </summary>
         internal static string floor_groupboxName {
