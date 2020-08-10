@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
         IsEnabled="True" Title="Create rooms finishes" DataContext="{Binding}" ShowInTaskbar="False" 
-        WindowStartupLocation="CenterScreen" MinWidth="500" MinHeight="500" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" WindowStyle="ToolWindow" Width="500" Height="802.3">
+        WindowStartupLocation="CenterScreen" MinWidth="500" MinHeight="500" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Width="500" Height="802.3">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Width" Value="88" />
@@ -44,11 +44,12 @@
                 <Label Content="+" VerticalAlignment="Center" HorizontalAlignment="Left" Height="37" VerticalContentAlignment="Center"/>
                 <DockPanel Margin="0,12" Width="207" Height="37" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBox  TextWrapping="Wrap" Text="0" x:Name="HeightTextBox" Margin="5,8,5,9" LostFocus="Height_TextBox_Wall"
-                              IsEnabled="True" HorizontalAlignment="Left" VerticalContentAlignment="Center" UndoLimit="0" VerticalAlignment="Center" MinWidth="100" Height="20" Width="100" MinHeight="20" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+                              IsEnabled="True" HorizontalAlignment="Left" VerticalContentAlignment="Center" UndoLimit="0" VerticalAlignment="Center" MinWidth="100" Height="20" Width="100" MinHeight="20" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" VerticalScrollBarVisibility="Disabled"/>
                 </DockPanel>
             </StackPanel>
         </GroupBox>
         <GroupBox x:Name="groupBoxRoom" Header="groupBoxRoom" Height="92" VerticalAlignment="Bottom" BorderBrush="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" VerticalContentAlignment="Bottom" Margin="0,0,0,163"/>
+        
 
     </Grid>
 </Window>

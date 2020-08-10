@@ -148,7 +148,7 @@
     <value>Создание стен отделки помещений</value>
   </data>
   <data name="roomFinishes_toolTip" xml:space="preserve">
-    <value>Создать стены отделки помещений</value>
+    <value>Создать тип отделки помещений</value>
   </data>
   <data name="roomFinishes_transactionName" xml:space="preserve">
     <value>Создать стены отделки помещений</value>
@@ -163,34 +163,34 @@
     <value>Высота</value>
   </data>
   <data name="levelTag_bottom_elevation_max" xml:space="preserve">
-    <value>максимальная высота низа?</value>
+    <value>Максимальная высота низа</value>
   </data>
   <data name="levelTag_bottom_elevation_min" xml:space="preserve">
-    <value>Минимальная высота низа?</value>
+    <value>Минимальная высота низа</value>
   </data>
   <data name="levelTag_top_elevation_max" xml:space="preserve">
-    <value>Максимальная высота верха?</value>
+    <value>Максимальная высота верха</value>
   </data>
   <data name="levelTag_top_elevation_min" xml:space="preserve">
-    <value>Минимальная высота верха?</value>
+    <value>Минимальная высота верха</value>
   </data>
   <data name="roomFinishes_SelectRooms" xml:space="preserve">
     <value>Выберите помещения</value>
   </data>
   <data name="floor_heightValueError" xml:space="preserve">
-    <value>Пожалуйста, введите корректное значение высоты пола</value>
+    <value>Пожалуйста, введите корректное значение высоты отделки пола</value>
   </data>
   <data name="floor_ribbon_panel_name" xml:space="preserve">
     <value>Напольные покрытия</value>
   </data>
   <data name="floor_select_floor_label" xml:space="preserve">
-    <value>Выбор типа пола отделки</value>
+    <value>Выбор типа перекрытия для отделки пола</value>
   </data>
   <data name="floor_TaskDialogName" xml:space="preserve">
     <value>Создание отделки пола</value>
   </data>
   <data name="floor_toolTip" xml:space="preserve">
-    <value>Создать тип отделки ????</value>
+    <value>Создать тип отделки</value>
   </data>
   <data name="floor_transactionName" xml:space="preserve">
     <value>Отделка пола</value>
@@ -202,7 +202,7 @@
     <value>От уровня</value>
   </data>
   <data name="floor_groupboxName" xml:space="preserve">
-    <value>Отметка верха пола</value>
+    <value>Отметка верха отделки пола</value>
   </data>
   <data name="floor_height_param_label" xml:space="preserve">
     <value>Значение из параметра</value>

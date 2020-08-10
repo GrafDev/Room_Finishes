@@ -61,7 +61,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Отметка верха пола.
+        ///   Looks up a localized string similar to Отметка верха отделки пола.
         /// </summary>
         internal static string floor_groupboxName {
             get {
@@ -97,7 +97,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Пожалуйста, введите корректное значение высоты пола.
+        ///   Looks up a localized string similar to Пожалуйста, введите корректное значение высоты отделки пола.
         /// </summary>
         internal static string floor_heightValueError {
             get {
@@ -124,7 +124,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Выбор типа пола отделки.
+        ///   Looks up a localized string similar to Выбор типа перекрытия для отделки пола.
         /// </summary>
         internal static string floor_select_floor_label {
             get {
@@ -142,7 +142,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Создать тип отделки ????.
+        ///   Looks up a localized string similar to Создать тип отделки.
         /// </summary>
         internal static string floor_toolTip {
             get {
@@ -169,7 +169,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to максимальная высота низа?.
+        ///   Looks up a localized string similar to Максимальная высота низа.
         /// </summary>
         internal static string levelTag_bottom_elevation_max {
             get {
@@ -178,7 +178,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Минимальная высота низа?.
+        ///   Looks up a localized string similar to Минимальная высота низа.
         /// </summary>
         internal static string levelTag_bottom_elevation_min {
             get {
@@ -196,7 +196,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Максимальная высота верха?.
+        ///   Looks up a localized string similar to Максимальная высота верха.
         /// </summary>
         internal static string levelTag_top_elevation_max {
             get {
@@ -205,7 +205,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Минимальная высота верха?.
+        ///   Looks up a localized string similar to Минимальная высота верха.
         /// </summary>
         internal static string levelTag_top_elevation_min {
             get {
@@ -358,7 +358,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Создать стены отделки помещений.
+        ///   Looks up a localized string similar to Создать тип отделки помещений.
         /// </summary>
         internal static string roomFinishes_toolTip {
             get {

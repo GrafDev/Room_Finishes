@@ -19,6 +19,7 @@ using Autodesk.Revit.DB.Architecture;
 using System.Globalization;
 using System.Resources;
 using RM;
+
 #endregion
 
 
@@ -40,6 +41,7 @@ namespace RM
             _doc = UIDoc.Document;
             _UIDoc = UIDoc;
             WallSetup = skirtingBoardSetup;
+            
 
             //Fill out Text in form
             this.Title = Util.GetLanguageResources.GetString("roomFinishes_TaskDialogName", Util.Cult);
@@ -53,7 +55,8 @@ namespace RM
             this.to_height_radio.Content = Util.GetLanguageResources.GetString("roomFinishes_to_height_Radio", Util.Cult);
             this.HeightTextBox.Text = Util.GetLanguageResources.GetString("roomFinishes_height_textBox", Util.Cult);
             this.groupBoxRoom.Header = Util.GetLanguageResources.GetString("roomFinishes_groupboxRoomName", Util.Cult);
-
+            this.HeightTextBox.BorderBrush = Brushes.DarkGray;
+            this.HeightTextBox.BorderThickness = new Thickness(1, 1, 1, 1);
             //Select the wall type in the document
             _wallTypes = from elem in new FilteredElementCollector(_doc).OfClass(typeof(WallType))
                          let type = elem as WallType
@@ -101,8 +104,11 @@ namespace RM
                     else
                     {
 
-                        TaskDialog.Show(Util.GetLanguageResources.GetString("roomFinishes_TaskDialogName", Util.Cult),
-                            Util.GetLanguageResources.GetString("roomFinishes_heightValueError", Util.Cult), TaskDialogCommonButtons.Close, TaskDialogResult.Close);
+                        //TaskDialog.Show(Util.GetLanguageResources.GetString("roomFinishes_TaskDialogName", Util.Cult),
+                        //    Util.GetLanguageResources.GetString("roomFinishes_heightValueError", Util.Cult), TaskDialogCommonButtons.Close, TaskDialogResult.Close);
+
+                        this.HeightTextBox.BorderBrush = Brushes.Red;
+                        this.HeightTextBox.BorderThickness = new Thickness(1, 1, 1, 1);
                         this.Activate();
                     }
                 }
@@ -225,4 +231,5 @@ namespace RM
             return false;
         }
     }
+    
 }

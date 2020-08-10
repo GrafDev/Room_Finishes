@@ -6,7 +6,7 @@
              xmlns:PropertyGrid="clr-namespace:UIFramework.PropertyGrid;assembly=UIFramework" x:Class="RM.FloorsControls"
              mc:Ignorable="d"
         IsEnabled="True" Title="Create rooms finishes" DataContext="{Binding}" ShowInTaskbar="False" 
-        WindowStartupLocation="CenterScreen" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Width="389" Height="356" MinWidth="550" MinHeight="500" WindowStyle="ToolWindow">
+        WindowStartupLocation="CenterScreen" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Width="389" Height="356" MinWidth="550" MinHeight="500">
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Width" Value="88" />

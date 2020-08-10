@@ -70,6 +70,15 @@ namespace RM.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Выбор помещений для установки отделки пола.
+        /// </summary>
+        internal static string floor_groupboxRoomSelectName {
+            get {
+                return ResourceManager.GetString("floor_groupboxRoomSelectName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to From value.
         /// </summary>
         internal static string floor_height_label {
@@ -115,7 +124,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select a floor type :.
+        ///   Looks up a localized string similar to Select a floor type.
         /// </summary>
         internal static string floor_select_floor_label {
             get {
@@ -278,7 +287,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter a height value for the skirting board :.
+        ///   Looks up a localized string similar to Please enter a height value for the skirting board.
         /// </summary>
         internal static string roomFinishes_heightValueError {
             get {

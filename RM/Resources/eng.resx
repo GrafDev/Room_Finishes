@@ -131,7 +131,7 @@ Board</value>
     <value>Cancel</value>
   </data>
   <data name="roomFinishes_heightValueError" xml:space="preserve">
-    <value>Please enter a height value for the skirting board :</value>
+    <value>Please enter a height value for the skirting board</value>
   </data>
   <data name="roomFinishes_OK_Button" xml:space="preserve">
     <value>OK</value>
@@ -185,7 +185,7 @@ Board</value>
     <value>Floor Finishes</value>
   </data>
   <data name="floor_select_floor_label" xml:space="preserve">
-    <value>Select a floor type :</value>
+    <value>Select a floor type</value>
   </data>
   <data name="floor_TaskDialogName" xml:space="preserve">
     <value>Create floor finishes</value>
@@ -228,5 +228,8 @@ Board</value>
   </data>
   <data name="roomFinishes_groupboxRoomName" xml:space="preserve">
     <value>----</value>
+  </data>
+  <data name="floor_groupboxRoomSelectName" xml:space="preserve">
+    <value>Выбор помещений для установки отделки пола</value>
   </data>
 </root>
