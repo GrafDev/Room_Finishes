@@ -120,12 +120,6 @@
   <data name="roomFinishes_all_rooms_radio" xml:space="preserve">
     <value>Все помещения на текущем виде</value>
   </data>
-  <data name="roomFinishes_board_height_label" xml:space="preserve">
-    <value>Смещение</value>
-  </data>
-  <data name="roomFinishes_button_name" xml:space="preserve">
-    <value>Стена</value>
-  </data>
   <data name="roomFinishes_Cancel_Button" xml:space="preserve">
     <value>Отменить</value>
   </data>
@@ -147,9 +141,6 @@
   <data name="roomFinishes_TaskDialogName" xml:space="preserve">
     <value>Создание стен отделки помещений</value>
   </data>
-  <data name="roomFinishes_toolTip" xml:space="preserve">
-    <value>Создать тип отделки помещений</value>
-  </data>
   <data name="roomFinishes_transactionName" xml:space="preserve">
     <value>Создать стены отделки помещений</value>
   </data>
@@ -162,35 +153,17 @@
   <data name="levelTag_parameter_group" xml:space="preserve">
     <value>Высота</value>
   </data>
-  <data name="levelTag_bottom_elevation_max" xml:space="preserve">
-    <value>Максимальная высота низа</value>
-  </data>
-  <data name="levelTag_bottom_elevation_min" xml:space="preserve">
-    <value>Минимальная высота низа</value>
-  </data>
-  <data name="levelTag_top_elevation_max" xml:space="preserve">
-    <value>Максимальная высота верха</value>
-  </data>
-  <data name="levelTag_top_elevation_min" xml:space="preserve">
-    <value>Минимальная высота верха</value>
-  </data>
   <data name="roomFinishes_SelectRooms" xml:space="preserve">
     <value>Выберите помещения</value>
   </data>
   <data name="floor_heightValueError" xml:space="preserve">
     <value>Пожалуйста, введите корректное значение высоты отделки пола</value>
   </data>
-  <data name="floor_ribbon_panel_name" xml:space="preserve">
-    <value>Напольные покрытия</value>
-  </data>
   <data name="floor_select_floor_label" xml:space="preserve">
     <value>Выбор типа перекрытия для отделки пола</value>
   </data>
   <data name="floor_TaskDialogName" xml:space="preserve">
     <value>Создание отделки пола</value>
-  </data>
-  <data name="floor_toolTip" xml:space="preserve">
-    <value>Создать тип отделки</value>
   </data>
   <data name="floor_transactionName" xml:space="preserve">
     <value>Отделка пола</value>
@@ -268,8 +241,7 @@ Gregory Yakovlev
 gregory.yakovlev@gmail.com</value>
   </data>
   <data name="groupTitle_ribbonPanel" xml:space="preserve">
-    <value>Отделка
-помещений</value>
+    <value>Отделка помещений</value>
   </data>
   <data name="aboutTitle_ribbonPanel" xml:space="preserve">
     <value>About</value>
@@ -287,6 +259,9 @@ gregory.yakovlev@gmail.com</value>
     <value>Отделка стен</value>
   </data>
   <data name="roomAutoSelectError" xml:space="preserve">
-    <value>Отделка не выполнена, так как не было найдено ни одного помещения. Попробуйте перейти на другой вид и выполнить команду еще раз.</value>
+    <value>Команда не выполнена, так как не было найдено ни одного помещения. Попробуйте перейти на другой вид и выполнить команду еще раз.</value>
+  </data>
+  <data name="titlePanel" xml:space="preserve">
+    <value>Отделка помещений</value>
   </data>
 </root>

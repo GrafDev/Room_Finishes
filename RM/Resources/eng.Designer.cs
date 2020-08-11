@@ -61,7 +61,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to RoomFinish plugin developed by BIMpel
+        ///   Looks up a localized string similar to RoomFinishes plugin developed by BIMpel
         ///
         ///LICENSE AGREEMENT.
         ///This software is protected by national copyright laws and international treaties. The exclusive rights to use this program belong to its author / publisher.
@@ -72,7 +72,7 @@ namespace RM.Resources {
         ///
         ///The software is supplied &quot;as is&quot;.
         ///
-        ///The program can be included in pai [rest of string was truncated]&quot;;.
+        ///The program can be included in p [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string About_Text {
             get {
@@ -81,7 +81,16 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Floor height.
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        internal static string aboutTitle_ribbonPanel {
+            get {
+                return ResourceManager.GetString("aboutTitle_ribbonPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Floor finish top height.
         /// </summary>
         internal static string floor_groupboxName {
             get {
@@ -90,7 +99,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Выбор помещений для установки отделки пола.
+        ///   Looks up a localized string similar to Select rooms for installing floor finishes.
         /// </summary>
         internal static string floor_groupboxRoomSelectName {
             get {
@@ -99,7 +108,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to From value.
+        ///   Looks up a localized string similar to From level.
         /// </summary>
         internal static string floor_height_label {
             get {
@@ -108,7 +117,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to From parameter.
+        ///   Looks up a localized string similar to Value from parameter.
         /// </summary>
         internal static string floor_height_param_label {
             get {
@@ -117,7 +126,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter an elevation value for the floor :.
+        ///   Looks up a localized string similar to Please enter the correct height of the floor finishes.
         /// </summary>
         internal static string floor_heightValueError {
             get {
@@ -131,15 +140,6 @@ namespace RM.Resources {
         internal static string floor_noRoomError {
             get {
                 return ResourceManager.GetString("floor_noRoomError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Floor Finishes.
-        /// </summary>
-        internal static string floor_ribbon_panel_name {
-            get {
-                return ResourceManager.GetString("floor_ribbon_panel_name", resourceCulture);
             }
         }
         
@@ -162,15 +162,6 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create finishing floor.
-        /// </summary>
-        internal static string floor_toolTip {
-            get {
-                return ResourceManager.GetString("floor_toolTip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Floor finish.
         /// </summary>
         internal static string floor_transactionName {
@@ -189,20 +180,20 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bottom Elevation Max.
+        ///   Looks up a localized string similar to Floor finishes.
         /// </summary>
-        internal static string levelTag_bottom_elevation_max {
+        internal static string floorTitle_ribbonPanel {
             get {
-                return ResourceManager.GetString("levelTag_bottom_elevation_max", resourceCulture);
+                return ResourceManager.GetString("floorTitle_ribbonPanel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bottom Elevation Min.
+        ///   Looks up a localized string similar to Rooms finishes.
         /// </summary>
-        internal static string levelTag_bottom_elevation_min {
+        internal static string groupTitle_ribbonPanel {
             get {
-                return ResourceManager.GetString("levelTag_bottom_elevation_min", resourceCulture);
+                return ResourceManager.GetString("groupTitle_ribbonPanel", resourceCulture);
             }
         }
         
@@ -216,20 +207,11 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Top Elevation Max.
+        ///   Looks up a localized string similar to The command failed because no rooms were found. Try changing to a different view and running the command again..
         /// </summary>
-        internal static string levelTag_top_elevation_max {
+        internal static string roomAutoSelectError {
             get {
-                return ResourceManager.GetString("levelTag_top_elevation_max", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Top Elevation Min.
-        /// </summary>
-        internal static string levelTag_top_elevation_min {
-            get {
-                return ResourceManager.GetString("levelTag_top_elevation_min", resourceCulture);
+                return ResourceManager.GetString("roomAutoSelectError", resourceCulture);
             }
         }
         
@@ -243,25 +225,6 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Skirting board height:.
-        /// </summary>
-        internal static string roomFinishes_board_height_label {
-            get {
-                return ResourceManager.GetString("roomFinishes_board_height_label", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Skirting
-        ///Board.
-        /// </summary>
-        internal static string roomFinishes_button_name {
-            get {
-                return ResourceManager.GetString("roomFinishes_button_name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         internal static string roomFinishes_Cancel_Button {
@@ -271,7 +234,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to roomFinishes_from_level_Radio.
+        ///   Looks up a localized string similar to Calculation based on room level.
         /// </summary>
         internal static string roomFinishes_from_level_Radio {
             get {
@@ -280,7 +243,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ----.
+        ///   Looks up a localized string similar to The upper limit of the walls of the rooms finishes.
         /// </summary>
         internal static string roomFinishes_groupboxParamName {
             get {
@@ -289,7 +252,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ----.
+        ///   Looks up a localized string similar to The choice of rooms for the installation of walls finishes.
         /// </summary>
         internal static string roomFinishes_groupboxRoomName {
             get {
@@ -307,29 +270,11 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter a height value for the skirting board.
+        ///   Looks up a localized string similar to Please enter a height value for the walls finishes.
         /// </summary>
         internal static string roomFinishes_heightValueError {
             get {
                 return ResourceManager.GetString("roomFinishes_heightValueError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Join geometry.
-        /// </summary>
-        internal static string roomFinishes_joinWalls {
-            get {
-                return ResourceManager.GetString("roomFinishes_joinWalls", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Create skirting board.
-        /// </summary>
-        internal static string roomFinishes_Name {
-            get {
-                return ResourceManager.GetString("roomFinishes_Name", resourceCulture);
             }
         }
         
@@ -343,7 +288,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Room Finishes.
+        ///   Looks up a localized string similar to Room finishes.
         /// </summary>
         internal static string roomFinishes_ribbon_panel_name {
             get {
@@ -370,7 +315,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select Rooms.
+        ///   Looks up a localized string similar to Select rooms.
         /// </summary>
         internal static string roomFinishes_SelectRooms {
             get {
@@ -379,7 +324,16 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to roomFinishes_to_height_Radio.
+        ///   Looks up a localized string similar to Creating walls finishes.
+        /// </summary>
+        internal static string roomFinishes_TaskDialogName {
+            get {
+                return ResourceManager.GetString("roomFinishes_TaskDialogName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculation from the height of the room.
         /// </summary>
         internal static string roomFinishes_to_height_Radio {
             get {
@@ -388,16 +342,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create skirting boards.
-        /// </summary>
-        internal static string roomFinishes_toolTip {
-            get {
-                return ResourceManager.GetString("roomFinishes_toolTip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Create skirting board.
+        ///   Looks up a localized string similar to Create a finishes walls.
         /// </summary>
         internal static string roomFinishes_transactionName {
             get {
@@ -420,6 +365,42 @@ namespace RM.Resources {
         internal static string roomFinishes_verticallyCompoundError {
             get {
                 return ResourceManager.GetString("roomFinishes_verticallyCompoundError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No fit-out has been done as no rooms have been selected..
+        /// </summary>
+        internal static string roomSelectError {
+            get {
+                return ResourceManager.GetString("roomSelectError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room selection error.
+        /// </summary>
+        internal static string roomSelectError_TitleDialogBox {
+            get {
+                return ResourceManager.GetString("roomSelectError_TitleDialogBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rooms finishes.
+        /// </summary>
+        internal static string titlePanel {
+            get {
+                return ResourceManager.GetString("titlePanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Walls finishes.
+        /// </summary>
+        internal static string wallTitle_ribbonPanel {
+            get {
+                return ResourceManager.GetString("wallTitle_ribbonPanel", resourceCulture);
             }
         }
     }

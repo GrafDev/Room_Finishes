@@ -120,24 +120,17 @@
   <data name="roomFinishes_all_rooms_radio" xml:space="preserve">
     <value>All rooms in current view</value>
   </data>
-  <data name="roomFinishes_board_height_label" xml:space="preserve">
-    <value>Skirting board height:</value>
-  </data>
-  <data name="roomFinishes_button_name" xml:space="preserve">
-    <value>Skirting
-Board</value>
-  </data>
   <data name="roomFinishes_Cancel_Button" xml:space="preserve">
     <value>Cancel</value>
   </data>
   <data name="roomFinishes_heightValueError" xml:space="preserve">
-    <value>Please enter a height value for the skirting board</value>
+    <value>Please enter a height value for the walls finishes</value>
   </data>
   <data name="roomFinishes_OK_Button" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="roomFinishes_ribbon_panel_name" xml:space="preserve">
-    <value>Room Finishes</value>
+    <value>Room finishes</value>
   </data>
   <data name="roomFinishes_selected_rooms_radio" xml:space="preserve">
     <value>Only selected rooms</value>
@@ -145,14 +138,8 @@ Board</value>
   <data name="roomFinishes_select_wall_label" xml:space="preserve">
     <value>Select a wall type for a skirting board :</value>
   </data>
-  <data name="roomFinishes_Name" xml:space="preserve">
-    <value>Create skirting board</value>
-  </data>
-  <data name="roomFinishes_toolTip" xml:space="preserve">
-    <value>Create skirting boards</value>
-  </data>
   <data name="roomFinishes_transactionName" xml:space="preserve">
-    <value>Create skirting board</value>
+    <value>Create a finishes walls</value>
   </data>
   <data name="roomFinishes_unexpectedError" xml:space="preserve">
     <value>Command is failed for unexpected reason.</value>
@@ -163,35 +150,17 @@ Board</value>
   <data name="levelTag_parameter_group" xml:space="preserve">
     <value>Elevation</value>
   </data>
-  <data name="levelTag_bottom_elevation_max" xml:space="preserve">
-    <value>Bottom Elevation Max</value>
-  </data>
-  <data name="levelTag_bottom_elevation_min" xml:space="preserve">
-    <value>Bottom Elevation Min</value>
-  </data>
-  <data name="levelTag_top_elevation_max" xml:space="preserve">
-    <value>Top Elevation Max</value>
-  </data>
-  <data name="levelTag_top_elevation_min" xml:space="preserve">
-    <value>Top Elevation Min</value>
-  </data>
   <data name="roomFinishes_SelectRooms" xml:space="preserve">
-    <value>Select Rooms</value>
+    <value>Select rooms</value>
   </data>
   <data name="floor_heightValueError" xml:space="preserve">
-    <value>Please enter an elevation value for the floor :</value>
-  </data>
-  <data name="floor_ribbon_panel_name" xml:space="preserve">
-    <value>Floor Finishes</value>
+    <value>Please enter the correct height of the floor finishes</value>
   </data>
   <data name="floor_select_floor_label" xml:space="preserve">
     <value>Select a floor type</value>
   </data>
   <data name="floor_TaskDialogName" xml:space="preserve">
     <value>Create floor finishes</value>
-  </data>
-  <data name="floor_toolTip" xml:space="preserve">
-    <value>Create finishing floor</value>
   </data>
   <data name="floor_transactionName" xml:space="preserve">
     <value>Floor finish</value>
@@ -200,40 +169,37 @@ Board</value>
     <value>Command is failed for unexpected reason.</value>
   </data>
   <data name="floor_height_label" xml:space="preserve">
-    <value>From value</value>
+    <value>From level</value>
   </data>
   <data name="floor_groupboxName" xml:space="preserve">
-    <value>Floor height</value>
+    <value>Floor finish top height</value>
   </data>
   <data name="floor_height_param_label" xml:space="preserve">
-    <value>From parameter</value>
+    <value>Value from parameter</value>
   </data>
   <data name="floor_noRoomError" xml:space="preserve">
     <value>There is no room in the current model</value>
   </data>
-  <data name="roomFinishes_joinWalls" xml:space="preserve">
-    <value>Join geometry</value>
-  </data>
   <data name="roomFinishes_from_level_Radio" xml:space="preserve">
-    <value>roomFinishes_from_level_Radio</value>
+    <value>Calculation based on room level</value>
   </data>
   <data name="roomFinishes_to_height_Radio" xml:space="preserve">
-    <value>roomFinishes_to_height_Radio</value>
+    <value>Calculation from the height of the room</value>
   </data>
   <data name="roomFinishes_height_textBox" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="roomFinishes_groupboxParamName" xml:space="preserve">
-    <value>----</value>
+    <value>The upper limit of the walls of the rooms finishes</value>
   </data>
   <data name="roomFinishes_groupboxRoomName" xml:space="preserve">
-    <value>----</value>
+    <value>The choice of rooms for the installation of walls finishes</value>
   </data>
   <data name="floor_groupboxRoomSelectName" xml:space="preserve">
-    <value>Выбор помещений для установки отделки пола</value>
+    <value>Select rooms for installing floor finishes</value>
   </data>
   <data name="About_Text" xml:space="preserve">
-    <value>RoomFinish plugin developed by BIMpel
+    <value>RoomFinishes plugin developed by BIMpel
 
 LICENSE AGREEMENT.
 This software is protected by national copyright laws and international treaties. The exclusive rights to use this program belong to its author / publisher.
@@ -270,5 +236,32 @@ All controversial issues are resolved by mutual agreement of the parties, and if
 CONTACT INFORMATION
 Gregory Yakovlev
 gregory.yakovlev@gmail.com</value>
+  </data>
+  <data name="aboutTitle_ribbonPanel" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="floorTitle_ribbonPanel" xml:space="preserve">
+    <value>Floor finishes</value>
+  </data>
+  <data name="groupTitle_ribbonPanel" xml:space="preserve">
+    <value>Rooms finishes</value>
+  </data>
+  <data name="roomAutoSelectError" xml:space="preserve">
+    <value>The command failed because no rooms were found. Try changing to a different view and running the command again.</value>
+  </data>
+  <data name="roomFinishes_TaskDialogName" xml:space="preserve">
+    <value>Creating walls finishes</value>
+  </data>
+  <data name="wallTitle_ribbonPanel" xml:space="preserve">
+    <value>Walls finishes</value>
+  </data>
+  <data name="roomSelectError" xml:space="preserve">
+    <value>No fit-out has been done as no rooms have been selected.</value>
+  </data>
+  <data name="roomSelectError_TitleDialogBox" xml:space="preserve">
+    <value>Room selection error</value>
+  </data>
+  <data name="titlePanel" xml:space="preserve">
+    <value>Rooms finishes</value>
   </data>
 </root>

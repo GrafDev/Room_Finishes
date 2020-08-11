@@ -142,15 +142,6 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Напольные покрытия.
-        /// </summary>
-        internal static string floor_ribbon_panel_name {
-            get {
-                return ResourceManager.GetString("floor_ribbon_panel_name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Выбор типа перекрытия для отделки пола.
         /// </summary>
         internal static string floor_select_floor_label {
@@ -165,15 +156,6 @@ namespace RM.Resources {
         internal static string floor_TaskDialogName {
             get {
                 return ResourceManager.GetString("floor_TaskDialogName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Создать тип отделки.
-        /// </summary>
-        internal static string floor_toolTip {
-            get {
-                return ResourceManager.GetString("floor_toolTip", resourceCulture);
             }
         }
         
@@ -205,30 +187,11 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Отделка
-        ///помещений.
+        ///   Looks up a localized string similar to Отделка помещений.
         /// </summary>
         internal static string groupTitle_ribbonPanel {
             get {
                 return ResourceManager.GetString("groupTitle_ribbonPanel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Максимальная высота низа.
-        /// </summary>
-        internal static string levelTag_bottom_elevation_max {
-            get {
-                return ResourceManager.GetString("levelTag_bottom_elevation_max", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Минимальная высота низа.
-        /// </summary>
-        internal static string levelTag_bottom_elevation_min {
-            get {
-                return ResourceManager.GetString("levelTag_bottom_elevation_min", resourceCulture);
             }
         }
         
@@ -242,25 +205,7 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Максимальная высота верха.
-        /// </summary>
-        internal static string levelTag_top_elevation_max {
-            get {
-                return ResourceManager.GetString("levelTag_top_elevation_max", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Минимальная высота верха.
-        /// </summary>
-        internal static string levelTag_top_elevation_min {
-            get {
-                return ResourceManager.GetString("levelTag_top_elevation_min", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Отделка не выполнена, так как не было найдено ни одного помещения. Попробуйте перейти на другой вид и выполнить команду еще раз..
+        ///   Looks up a localized string similar to Команда не выполнена, так как не было найдено ни одного помещения. Попробуйте перейти на другой вид и выполнить команду еще раз..
         /// </summary>
         internal static string roomAutoSelectError {
             get {
@@ -274,24 +219,6 @@ namespace RM.Resources {
         internal static string roomFinishes_all_rooms_radio {
             get {
                 return ResourceManager.GetString("roomFinishes_all_rooms_radio", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Смещение.
-        /// </summary>
-        internal static string roomFinishes_board_height_label {
-            get {
-                return ResourceManager.GetString("roomFinishes_board_height_label", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Стена.
-        /// </summary>
-        internal static string roomFinishes_button_name {
-            get {
-                return ResourceManager.GetString("roomFinishes_button_name", resourceCulture);
             }
         }
         
@@ -413,15 +340,6 @@ namespace RM.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Создать тип отделки помещений.
-        /// </summary>
-        internal static string roomFinishes_toolTip {
-            get {
-                return ResourceManager.GetString("roomFinishes_toolTip", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Создать стены отделки помещений.
         /// </summary>
         internal static string roomFinishes_transactionName {
@@ -463,6 +381,15 @@ namespace RM.Resources {
         internal static string roomSelectError_TitleDialogBox {
             get {
                 return ResourceManager.GetString("roomSelectError_TitleDialogBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отделка помещений.
+        /// </summary>
+        internal static string titlePanel {
+            get {
+                return ResourceManager.GetString("titlePanel", resourceCulture);
             }
         }
         

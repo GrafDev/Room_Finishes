@@ -1,0 +1,38 @@
+Plugin Rooms Finishes for Autodesk Revit.
+Developed by BIMpel.
+
+LICENSE AGREEMENT.
+This software is protected by national copyright laws and international treaties. The exclusive rights to use this program belong to its author / publisher.
+
+The program and its components can be used for free, without license fees, for an unlimited time.
+
+Commercial distribution of the program is prohibited. (It is forbidden to take money for distributing the program).
+
+The software is supplied "as is".
+
+The program can be included in paid collections, placed on sites other than the site of the copyright holder only with the permission of the copyright holder.
+
+LIMITATION OF WARRANTY.
+The program may contain errors. The copyright holder is not responsible for possible program errors.
+
+The copyright holder does not guarantee that the functions contained in the program will meet the stated requirements or that the program will not be interrupted due to an error.
+
+The copyright holder intentionally disclaims all warranties declared and assumed by default in writing, including restrictions on the application of warranties after a certain period and the product's shelf life.
+
+Under no circumstances will the copyright holder be liable to the user for any harm, physical or commercial, caused by this program, including lost profits, loss of data, damage to reputation or other collateral or consequential harm arising from the use or inability to use this program. Also, claims for any other property claims of the program user are not accepted.
+
+COPYRIGHT
+All exclusive copyright for the program belongs to the copyright holder.
+
+The program cannot be disassembled, changed or supplemented with new functions.
+
+When distributing the program, the name of the copyright holder, his contact information and the site of the copyright holder must be indicated.
+
+CONTROL OVER COMPLIANCE WITH OBLIGATIONS.
+This license agreement complies with national copyright laws. This agreement is based on the revised version of these laws, which supersedes all other agreements and agreements previously applied to this product.
+
+All controversial issues are resolved by mutual agreement of the parties, and if no agreement has been reached, then in the courts of general jurisdiction.
+
+CONTACT INFORMATION
+Gregory Yakovlev
+gregory.yakovlev@gmail.com

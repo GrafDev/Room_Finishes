@@ -32,8 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>RM.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AddInJournalClient, Version=20.0.0.0, Culture=neutral, processorArchitecture=AMD64">
@@ -141,11 +140,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>rus.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="RM2_floor_Large.png" />
     <EmbeddedResource Include="RM2_floor_Small.png" />
-    <EmbeddedResource Include="RM2_Large.png" />
-    <EmbeddedResource Include="RM2_Small.png" />
-    <EmbeddedResource Include="RM2_wall_Large.png" />
     <EmbeddedResource Include="RM2_wall_Small.png" />
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +160,16 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RM2_floor_Large.ico" />
+    <EmbeddedResource Include="RM2_wall_Large.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RM2_Large.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RM.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

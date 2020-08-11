@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>RM</Name>
+    <Assembly>.\RM\RM.dll</Assembly>
+    <AddInId>FE882208-36F0-4B9F-8EC5-06CDB4EA9A07</AddInId>
+    <FullClassName>RM.Start</FullClassName>
+    <VendorId>BIMpel</VendorId>
+    <VendorDescription>BIMpel, http://bimpel.ru</VendorDescription>
+  </AddIn>
+</RevitAddIns>

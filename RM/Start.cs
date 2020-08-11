@@ -13,6 +13,7 @@ using RM.Properties;
 using System.Runtime.CompilerServices;
 using Autodesk.Revit.Creation;
 using System.Windows.Media;
+using Autodesk.Windows;
 
 namespace RM
 {
@@ -24,12 +25,12 @@ namespace RM
             UIControlledApplication app = application;
             Util.GetLocalisationValues(app);
             string panelName = Util.GetLanguageResources.GetString("groupTitle_ribbonPanel", Util.Cult);//Имя панели плагина
-            string imageWallSmall = "RM.RM2_wall_Small.png";/// Иконки комманд
-            string imageWallLarge = "RM.RM2_wall_Large.png";
-            string imageFloorSmall = "RM.RM2_floor_Small.png";
-            string imageFloorLarge = "RM.RM2_floor_Large.png";
-            string imageRibbonSmall = "RM.RM2_Small.png";
-            string imageRibbonLarge = "RM.RM2_Small.png";//Пришлось поставить маленькую иконку. Большая не помещается
+            string imageWallSmall = "RM.RM2_wall_Large.ico";/// Иконки комманд
+            string imageWallLarge = "RM.RM2_wall_Large.ico";
+            string imageFloorSmall = "RM.RM2_floor_Large.ico";
+            string imageFloorLarge = "RM.RM2_floor_Large.ico";
+            string imageRibbonSmall = "RM.RM2_Large.ico";
+            string imageRibbonLarge = "RM.RM2_Large.ico";//Пришлось поставить маленькую иконку. Большая не помещается
 
             string imageAboutSmall = "RM.iconParameters16.png";
             string imageAboutLarge = "RM.iconParameters32.png";///
@@ -45,9 +46,10 @@ namespace RM
 
 
             string thisAssembyPath = Assembly.GetExecutingAssembly().Location;
-            RibbonPanel ribbonPanel = application.CreateRibbonPanel(panelName);//Установка панели
+            Autodesk.Revit.UI.RibbonPanel ribbonPanel = application.CreateRibbonPanel(panelName);//Установка панели
             ribbonPanel.Enabled = true;
-            ribbonPanel.Visible = true;
+            ribbonPanel.Visible = true;                 
+
 
             PulldownButtonData group1Data = new PulldownButtonData("PulldownGroup", groupTitle);// Установка группы комманд
             group1Data.Image = GetEmbeddedImage(imageRibbonSmall);
@@ -55,16 +57,17 @@ namespace RM
             PulldownButton group1 = ribbonPanel.AddItem(group1Data) as PulldownButton;
 
             PushButtonData buttonWallData = new PushButtonData("Name1", wallTitle, thisAssembyPath, classWallName);//Комманда стен
-            PushButton pushMarkButton = group1.AddPushButton(buttonWallData) as PushButton;
-            pushMarkButton.Image = GetEmbeddedImage(imageWallSmall);
-            pushMarkButton.LargeImage = GetEmbeddedImage(imageWallLarge);
-            pushMarkButton.ClassName = classWallName;
+            PushButton pushWallButton = group1.AddPushButton(buttonWallData) as PushButton;
+            pushWallButton.Image = GetEmbeddedImage(imageWallSmall);
+            pushWallButton.LargeImage = GetEmbeddedImage(imageWallLarge);            
+            pushWallButton.ClassName = classWallName;
 
             PushButtonData buttonFloorData = new PushButtonData("Name2", floorTitle, thisAssembyPath, classFroolName);//Комманда пола
-            PushButton pushCleanButton = group1.AddPushButton(buttonFloorData) as PushButton;
-            pushCleanButton.Image = GetEmbeddedImage(imageFloorSmall);
-            pushCleanButton.LargeImage = GetEmbeddedImage(imageFloorLarge);
-            pushCleanButton.ClassName = classFroolName;
+            PushButton pushFloorButton = group1.AddPushButton(buttonFloorData) as PushButton;
+            pushFloorButton.Image = GetEmbeddedImage(imageFloorSmall);
+            pushFloorButton.LargeImage = GetEmbeddedImage(imageFloorLarge);
+            pushFloorButton.ClassName = classFroolName;
+            
 
             group1.AddSeparator();
 
