@@ -19,67 +19,59 @@ namespace RM
 {
     public class Start:IExternalApplication
     {
+
         //Создание панели и основных кнопок управления
         public Result OnStartup(UIControlledApplication application)
         {
             UIControlledApplication app = application;
             Util.GetLocalisationValues(app);
-            string panelName = Util.GetLanguageResources.GetString("groupTitle_ribbonPanel", Util.Cult);//Имя панели плагина
-            string imageWallSmall = "RM.RM2_wall_Large.ico";/// Иконки комманд
-            string imageWallLarge = "RM.RM2_wall_Large.ico";
-            string imageFloorSmall = "RM.RM2_floor_Large.ico";
-            string imageFloorLarge = "RM.RM2_floor_Large.ico";
-            string imageRibbonSmall = "RM.RM2_Large.ico";
-            string imageRibbonLarge = "RM.RM2_Large.ico";//Пришлось поставить маленькую иконку. Большая не помещается
+            { // Лента
+                string thisAssembyPath = Assembly.GetExecutingAssembly().Location;
+                string panelName = Util.GetLanguageResources.GetString("groupTitle_ribbonPanel", Util.Cult);
+                Autodesk.Revit.UI.RibbonPanel ribbonPanel = application.CreateRibbonPanel(panelName);
+                ribbonPanel.Enabled = true;
+                ribbonPanel.Visible = true;
 
-            string imageAboutSmall = "RM.iconParameters16.png";
-            string imageAboutLarge = "RM.iconParameters32.png";///
+                { // Выпадающее меню
+                    string groupTitle = Util.GetLanguageResources.GetString("groupTitle_ribbonPanel", Util.Cult);
+                    PulldownButtonData group1Data = new PulldownButtonData("PulldownGroup", groupTitle);
+                    PulldownButton group1 = ribbonPanel.AddItem(group1Data) as PulldownButton;
+                    group1Data.Image = GetEmbeddedImage("RM.RM2wall.ico");
+                    group1Data.LargeImage = GetEmbeddedImage("RM.RM2wall.ico");
 
-            string classWallName = "RM.WallFinish";// Имя Класса для маркировки
-            string classFroolName = "RM.FloorFinish";//Имя класса для очистки
-            string classAbout = "RM.AboutWindow";// Имя класса для параметров
-            string groupTitle= Util.GetLanguageResources.GetString("groupTitle_ribbonPanel", Util.Cult);
-            string wallTitle = Util.GetLanguageResources.GetString("wallTitle_ribbonPanel", Util.Cult);
-            string floorTitle = Util.GetLanguageResources.GetString("floorTitle_ribbonPanel", Util.Cult);
-            string aboutTitle = Util.GetLanguageResources.GetString("aboutTitle_ribbonPanel", Util.Cult);
-            
+                    {
+                        string classWallName = "RM.WallFinish";
+                        string wallTitle = Util.GetLanguageResources.GetString("wallTitle_ribbonPanel", Util.Cult);
+                        PushButtonData buttonWallData = new PushButtonData("Name1", wallTitle, thisAssembyPath, classWallName);
+                        PushButton pushWallButton = group1.AddPushButton(buttonWallData) as PushButton;
+                        pushWallButton.Image = GetEmbeddedImage("RM.RM2wall.ico");
+                        pushWallButton.LargeImage = GetEmbeddedImage("RM.RM2wall.ico");
+                    }
 
-
-            string thisAssembyPath = Assembly.GetExecutingAssembly().Location;
-            Autodesk.Revit.UI.RibbonPanel ribbonPanel = application.CreateRibbonPanel(panelName);//Установка панели
-            ribbonPanel.Enabled = true;
-            ribbonPanel.Visible = true;                 
-
-
-            PulldownButtonData group1Data = new PulldownButtonData("PulldownGroup", groupTitle);// Установка группы комманд
-            group1Data.Image = GetEmbeddedImage(imageRibbonSmall);
-            group1Data.LargeImage = GetEmbeddedImage(imageRibbonLarge);
-            PulldownButton group1 = ribbonPanel.AddItem(group1Data) as PulldownButton;
-
-            PushButtonData buttonWallData = new PushButtonData("Name1", wallTitle, thisAssembyPath, classWallName);//Комманда стен
-            PushButton pushWallButton = group1.AddPushButton(buttonWallData) as PushButton;
-            pushWallButton.Image = GetEmbeddedImage(imageWallSmall);
-            pushWallButton.LargeImage = GetEmbeddedImage(imageWallLarge);            
-            pushWallButton.ClassName = classWallName;
-
-            PushButtonData buttonFloorData = new PushButtonData("Name2", floorTitle, thisAssembyPath, classFroolName);//Комманда пола
-            PushButton pushFloorButton = group1.AddPushButton(buttonFloorData) as PushButton;
-            pushFloorButton.Image = GetEmbeddedImage(imageFloorSmall);
-            pushFloorButton.LargeImage = GetEmbeddedImage(imageFloorLarge);
-            pushFloorButton.ClassName = classFroolName;
-            
-
-            group1.AddSeparator();
-
-            PushButtonData buttonAboutData = new PushButtonData("Name3", aboutTitle, thisAssembyPath, classAbout);//Команда параметров
-            PushButton pushAboutButton = group1.AddPushButton(buttonAboutData) as PushButton;
-            pushAboutButton.Image = GetEmbeddedImage(imageAboutSmall);
-            pushAboutButton.LargeImage = GetEmbeddedImage(imageAboutLarge);
-            pushAboutButton.ClassName = classAbout;
-
-            return Result.Succeeded;
-
+                    {
+                        string classFroolName = "RM.FloorFinish";
+                        string floorTitle = Util.GetLanguageResources.GetString("floorTitle_ribbonPanel", Util.Cult);
+                        PushButtonData buttonFloorData = new PushButtonData("Name2", floorTitle, thisAssembyPath, classFroolName);
+                        PushButton pushFloorButton = group1.AddPushButton(buttonFloorData) as PushButton;
+                        pushFloorButton.Image = GetEmbeddedImage("RM.RM2floor.ico");
+                        pushFloorButton.LargeImage = GetEmbeddedImage("RM.RM2floor.ico");
+                        
+                    }
+                    group1.AddSeparator();
+                    {
+                        string classAbout = "RM.AboutWindow";
+                        string aboutTitle = Util.GetLanguageResources.GetString("aboutTitle_ribbonPanel", Util.Cult);
+                        PushButtonData buttonAboutData = new PushButtonData("Name3", aboutTitle, thisAssembyPath, classAbout);
+                        PushButton pushAboutButton = group1.AddPushButton(buttonAboutData) as PushButton;
+                        pushAboutButton.Image = GetEmbeddedImage("RM.iconParameters16.png");
+                        pushAboutButton.LargeImage = GetEmbeddedImage("RM.iconParameters32.png");
+                    }
+                }
+                return Result.Succeeded;
+            }
         }
+
+    
 
         static BitmapSource GetEmbeddedImage(string name)// Получение иконок из сборки
         {
