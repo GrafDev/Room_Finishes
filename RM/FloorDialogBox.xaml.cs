@@ -68,11 +68,11 @@ namespace RM
 
             // Обнаружение помещений для вытаскивания парметров
             IList<Element> roomList =   new FilteredElementCollector(_doc).OfCategory(BuiltInCategory.OST_Rooms).ToList();
-                 
 
+            // Заполнение необходимыми парметрами выпадающую полосу
             if (roomList.Count != 0)
             {
-                // Заполнение необходимыми парметрами выпадающую полосу
+                
                 Room room = roomList.First() as Room;
                 List<Parameter> doubleParam = new List<Parameter>(4);
                 doubleParam.Insert(0, room.get_Parameter(BuiltInParameter.ROOM_LEVEL_ID));
@@ -106,13 +106,12 @@ namespace RM
 
                 if (FloorTypeListBox.SelectedItem != null)
                 {
-                    // Выбор типа плиты
+
                     FloorSetup.SelectedFloorType = FloorTypeListBox.SelectedItem as FloorType;
 
                     this.DialogResult = true;
                     this.Close();
 
-                    // Выбор помещений
                     FloorSetup.SelectedRooms = SelectRooms().ToList();
                 }
             }
@@ -198,7 +197,7 @@ namespace RM
                 this.Activate();
             }
         }
-        public class RoomSelectionFilter : ISelectionFilter // HACK: Необходимо потом удалить после появления пола
+        public class RoomSelectionFilter : ISelectionFilter 
         {
             public bool AllowElement(Element element)
             {

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
         IsEnabled="True" Title="Create rooms finishes" DataContext="{Binding}" ShowInTaskbar="False" 
-        WindowStartupLocation="CenterScreen" MinWidth="500" MinHeight="500" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Width="500" Height="802.3">
+        WindowStartupLocation="CenterScreen" MinWidth="500" MinHeight="500" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Width="500" Height="802.3" MaxWidth="900" MaxHeight="1200">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Width" Value="88" />
@@ -37,19 +37,19 @@
         </StackPanel>
         <GroupBox x:Name="groupboxParam" Header="groupboxParam" Foreground="Black" BorderThickness="1" Grid.IsSharedSizeScope="True" MinHeight="80" Margin="0,0,0,66" BorderBrush="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" VerticalAlignment="Bottom" Height="92" OpacityMask="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
             <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,2,-2,-3" VerticalAlignment="Center" Height="70" HorizontalAlignment="Left" Width="462" MinHeight="60">
-                <StackPanel Margin="0,0,0,8" Height="45" VerticalAlignment="Bottom" MinHeight="60" OpacityMask="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" HorizontalAlignment="Left" Width="234">
+                <StackPanel Margin="0,0,0,5" Height="58" VerticalAlignment="Bottom" MinHeight="60" OpacityMask="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" HorizontalAlignment="Left" Width="309">
                     <RadioButton Content="from_level_radio" x:Name="from_level_radio" IsChecked="True" Margin="10,5,0,5" VerticalAlignment="Top"/>
                     <RadioButton Content="to_height_radio" x:Name="to_height_radio" Margin="10,5,0,5" VerticalAlignment="Bottom"/>
                 </StackPanel>
                 <Label Content="+" VerticalAlignment="Center" HorizontalAlignment="Left" Height="37" VerticalContentAlignment="Center"/>
-                <DockPanel Margin="0,12" Width="207" Height="37" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <DockPanel Margin="0,5" Width="125" Height="60" HorizontalAlignment="Left" VerticalAlignment="Center" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}">
                     <TextBox  TextWrapping="Wrap" Text="0" x:Name="HeightTextBox" Margin="5,8,5,9" LostFocus="Height_TextBox_Wall"
-                              IsEnabled="True" HorizontalAlignment="Left" VerticalContentAlignment="Center" UndoLimit="0" VerticalAlignment="Center" MinWidth="100" Height="20" Width="100" MinHeight="20" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" VerticalScrollBarVisibility="Disabled"/>
+                              IsEnabled="True" HorizontalAlignment="Left" VerticalContentAlignment="Center" UndoLimit="0" VerticalAlignment="Center" MinWidth="100" Height="20" Width="100" MinHeight="20" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" VerticalScrollBarVisibility="Disabled"/>
                 </DockPanel>
             </StackPanel>
         </GroupBox>
         <GroupBox x:Name="groupBoxRoom" Header="groupBoxRoom" Height="92" VerticalAlignment="Bottom" BorderBrush="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" VerticalContentAlignment="Bottom" Margin="0,0,0,163"/>
-        
+
 
     </Grid>
 </Window>

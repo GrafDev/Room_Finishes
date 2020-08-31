@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:RM"
              mc:Ignorable="d"
              IsEnabled="True" Title="Create rooms finishes" DataContext="{Binding}" ShowInTaskbar="False" 
-             WindowStartupLocation="CenterScreen" MinWidth="500" MinHeight="500" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" MaxWidth="800" Height="306" VerticalAlignment="Bottom" Width="264" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.CanContentScroll="True">
+             WindowStartupLocation="CenterScreen" MinWidth="500" MinHeight="500" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" MaxWidth="800" Height="306" VerticalAlignment="Bottom" Width="749" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.CanContentScroll="True" MaxHeight="1200">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

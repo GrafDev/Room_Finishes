@@ -36,8 +36,9 @@ namespace RM
                     string groupTitle = Util.GetLanguageResources.GetString("groupTitle_ribbonPanel", Util.Cult);
                     PulldownButtonData group1Data = new PulldownButtonData("PulldownGroup", groupTitle);
                     PulldownButton group1 = ribbonPanel.AddItem(group1Data) as PulldownButton;
-                    group1Data.Image = GetEmbeddedImage("RM.RM2wall.ico");
-                    group1Data.LargeImage = GetEmbeddedImage("RM.RM2wall.ico");
+                    group1.Image = GetEmbeddedImage("RM.RM2Ribbon.ico");
+                    group1.LargeImage = GetEmbeddedImage("RM.RM2Ribbon.ico");
+
 
                     {
                         string classWallName = "RM.WallFinish";
@@ -73,7 +74,7 @@ namespace RM
 
     
 
-        static BitmapSource GetEmbeddedImage(string name)// Получение иконок из сборки
+        static ImageSource GetEmbeddedImage(string name)// Получение иконок из сборки
         {
             try
             {

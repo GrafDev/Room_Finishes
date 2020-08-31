@@ -57,5 +57,5 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"; LicenseFile: "C
 
 
 ; Прилагающиеся ресурсы
-Source: "C:\Users\jakovlevgm\source\repos\RM\RM\bin\Release\RM.dll"; DestDir: "{app}\RM"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "C:\Users\jakovlevgm\source\repos\RM\RM\bin\Release\RM.addin"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\jakovlevgm\source\repos\RM\RM\bin\Release\Room Finishes 2.0.dll"; DestDir: "{app}\RM"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\jakovlevgm\source\repos\RM\RM\bin\Release\Room Finishes 2.0.addin"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs

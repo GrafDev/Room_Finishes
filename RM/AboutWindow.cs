@@ -24,15 +24,14 @@ namespace RM
             {
                 try
                 {
-                    Document document = doc;
-
-                    FloorsSetup floorsFinishesSetup = new FloorsSetup();
+                    Document document = doc;                   
+                    //FloorsSetup floorsFinishesSetup = new FloorsSetup();
                     //Load the selection form
 
                     AboutWindowBox aboutWindow = new AboutWindowBox();
 
                     //aboutWindow.InitializeComponent();
-
+                    
                     return Result.Succeeded;
                 }
 
@@ -66,7 +65,9 @@ namespace RM
                     }
                     return Autodesk.Revit.UI.Result.Failed;
                 }
+                
             }
+
         
 
         }

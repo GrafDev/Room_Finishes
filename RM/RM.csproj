@@ -161,15 +161,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="RM.ico" />
-    <EmbeddedResource Include="RM2floorSmall.png" />
-    <EmbeddedResource Include="RM2wallSmall.png" />
     <EmbeddedResource Include="RM2floor.ico" />
     <EmbeddedResource Include="RM2Ribbon.ico" />
     <EmbeddedResource Include="RM2wall.ico" />
-    <EmbeddedResource Include="RM2floorLarge.png" />
-    <EmbeddedResource Include="RM2RibbonLarge.png" />
-    <EmbeddedResource Include="RM2RibbonSmall.png" />
-    <EmbeddedResource Include="RM2wallLarge.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
