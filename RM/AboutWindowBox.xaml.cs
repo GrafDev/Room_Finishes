@@ -12,6 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using Autodesk.Revit.UI.Selection;
+using Autodesk.Revit.DB.Architecture;
+using System.Globalization;
+using System.Resources;
+using System.Reflection.Emit;
+using System.Reflection;
 
 namespace RM
 {
@@ -20,8 +28,12 @@ namespace RM
     /// </summary>
     public partial class AboutWindowBox : Window
     {
-        public AboutWindowBox()
+        private Document _doc;
+        private UIDocument _UIDoc;
+        public AboutWindowBox(UIDocument UIDoc)
         {
+            _doc = UIDoc.Document;
+            _UIDoc = UIDoc;
             InitializeComponent();
             this.AboutText.Text = Util.GetLanguageResources.GetString("About_Text", Util.Cult);
             this.Ok_Button.Content = Util.GetLanguageResources.GetString("roomFinishes_OK_Button", Util.Cult);
