@@ -28,7 +28,7 @@ namespace RM
                     //FloorsSetup floorsFinishesSetup = new FloorsSetup();
                     //Load the selection form
 
-                    AboutWindowBox aboutWindow = new AboutWindowBox();
+                    AboutWindowBox aboutWindow = new AboutWindowBox(UIdoc);
 
                     //aboutWindow.InitializeComponent();
                     
