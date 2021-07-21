@@ -4,15 +4,15 @@
 library
 C#
 .cs
-C:\Users\user\Documents\GitHub\RM\RM\obj\Debug\
+C:\Users\user\Documents\GitHub\RM\RM\obj\Release\
 RM
 none
 false
-DEBUG;TRACE
+TRACE
 
 4-894537719
 
-14-1624875421
+13-782516054
 231763250794
 App.xaml;AboutWindowBox.xaml;WallDialogBox.xaml;FloorDialogBox.xaml;
 
