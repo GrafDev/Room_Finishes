@@ -25,17 +25,33 @@ namespace RM
         {
             UIControlledApplication app = application;
             Util.GetLocalisationValues(app);
+            string nameOfTab = "GrafDev";
             { // Лента
-                string thisAssembyPath = Assembly.GetExecutingAssembly().Location;
-                string panelName = Util.GetLanguageResources.GetString("groupTitle_ribbonPanel", Util.Cult);
-                Autodesk.Revit.UI.RibbonPanel ribbonPanel = application.CreateRibbonPanel(panelName);
-                ribbonPanel.Enabled = true;
-                ribbonPanel.Visible = true;
 
+                
+
+                string thisAssembyPath = Assembly.GetExecutingAssembly().Location;
+                
+                string nameOfPanel = Util.GetLanguageResources.GetString("groupTitle_ribbonPanel", Util.Cult);
+
+                try
+                {
+                    app.CreateRibbonTab(nameOfTab);
+                }
+                catch
+                {
+
+                }
+
+
+                var nameOfRibbon = app.CreateRibbonPanel(nameOfTab, nameOfPanel);
+                nameOfRibbon.Enabled = true;
+                nameOfRibbon.Visible = true;
+                    
                 { // Выпадающее меню
                     string groupTitle = Util.GetLanguageResources.GetString("groupTitle_ribbonPanel", Util.Cult);
-                    PulldownButtonData group1Data = new PulldownButtonData("PulldownGroup", groupTitle);
-                    PulldownButton group1 = ribbonPanel.AddItem(group1Data) as PulldownButton;
+                    var group1Data = new PulldownButtonData("PulldownGroup", groupTitle);
+                    var group1 = nameOfRibbon.AddItem(group1Data) as PulldownButton;
                     group1.Image = GetEmbeddedImage("RM.RM2Ribbon.ico");
                     group1.LargeImage = GetEmbeddedImage("RM.RM2Ribbon.ico");
 
